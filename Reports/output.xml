@@ -1,0 +1,2244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231118 22:02:00.426" rpa="false" schemaversion="4">
+<suite id="s1" name="Features" source="C:\Users\mathe\OneDrive\Área de Trabalho\Web2 - Robot\Features">
+<suite id="s1-s1" name="PacientesBDD" source="C:\Users\mathe\OneDrive\Área de Trabalho\Web2 - Robot\Features\PacientesBDD.robot">
+<test id="s1-s1-t1" name="Scenario 1: Aquele que eu busco por todos os pacientes" line="12">
+<kw name="Given Que eu chamando todos pacientes" library="Pacientes">
+<doc>Puxa os dados de todos os pacientes</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:01.131" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:01.131" endtime="20231118 22:02:01.131"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:01.671" level="INFO">GET Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes 
+ path_url=/api/pacientes 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:01.671" level="INFO">GET Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355722&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=k973C6FNo3ICe8MMMqW4b5S3zliGkTPwh9VDZY0yfHo%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355722&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=k973C6FNo3ICe8MMMqW4b5S3zliGkTPwh9VDZY0yfHo%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:02 GMT', 'Via': '1.1 vegur'} 
+ body=[{"id":"65467e1b0d065b0d8af837fe","nome":"John","sobrenome":"Wilson","cpf":"18929954502","idade":1,"sexo":"Masculino","contato":"(489)707-7607","logradouro":"569 Amanda Summit Apt. 189","numero":"44","bairro":"West Latashaburgh","cep":"41299-150","municipio":"Port Tamarahaven","estado":"BA"},{"id":"65467e6c0d065b0d8af83802","nome":"Richard","sobrenome":"Torres","cpf":"74275232704","idade":33,"sexo":"Feminino","contato":"(709)887-1290","logradouro":"156 Ann Hollow","numero":"34","bairro":"Dunnland","cep":"41299-150","municipio":"Bowersshire","estado":"CE"},{"id":"65467ec50d065b0d8af83806","nome":"Christopher","sobrenome":"Edwards","cpf":"62251865497","idade":11,"sexo":"Masculino","contato":"+1-657-438-7432","logradouro":"794 Donaldson Springs","numero":"48","bairro":"Oliverport","cep":"41299-150","municipio":"Port Lesliechester","estado":"BA"},{"id":"6546894d0d065b0d8af8380a","nome":"Jeff","sobrenome":"Mullins","cpf":"40330709666","idade":43,"sexo":"Feminino","contato":"394-968-1199","logradouro":"23649 Peters Mission Suite 391","numero":"29","bairro":"New Danny","cep":"41299-150","municipio":"North Kevinton","estado":"BA"},{"id":"6546897f0d065b0d8af8380e","nome":"Andrew","sobrenome":"Bryant","cpf":"93092107454","idade":54,"sexo":"Masculino","contato":"001-452-738-7381x941","logradouro":"8421 Daniel Summit","numero":"33","bairro":"West Brittany","cep":"41299-150","municipio":"New Brenda","estado":"BA"},{"id":"654a72b413026f22c7528f8f","nome":"Paramo","sobrenome":"Paciente","cpf":"72118849087","idade":40,"sexo":"F","contato":"(71) 99998-8655","logradouro":"Av. Luiz Tarquínio Pontes","numero":"600","bairro":"Fazenda Pitangueira","cep":"42700000","municipio":"Lauro De Freitas","estado":"BA"},{"id":"6559432282f89b53c9dbe07d","nome":"Rose","sobrenome":"Phillips","cpf":"08258560000","idade":95,"sexo":"Feminino","contato":"461.224.9171x760","logradouro":"2211 Wilson Creek","numero":"67","bairro":"West Michelle","cep":"41299-150","municipio":"Wolfebury","estado":"WI"},{"id":"655945a382f89b53c9dbe07e","nome":"Theresa","sobrenome":"Carr","cpf":"80133318303","idade":78,"sexo":"Masculino","contato":"391.908.4739x840","logradouro":"843 Allison Summit Suite 553","numero":"25","bairro":"Port Shelia","cep":"41299-150","municipio":"West Williamstad","estado":"AR"},{"id":"655945a482f89b53c9dbe07f","nome":"Toni","sobrenome":"Perez","cpf":"70143213741","idade":69,"sexo":"Masculino","contato":"941-363-3820x455","logradouro":"849 Paul Camp","numero":"89","bairro":"East Jessicaborough","cep":"00000-000","municipio":"North Emily","estado":"VA"},{"id":"655945a582f89b53c9dbe080","nome":"Matthew","sobrenome":"Collins","cpf":"59152739040","idade":80,"sexo":"Feminino","contato":"001-493-693-2289","logradouro":"43431 Michael Forest Apt. 489","numero":"88","bairro":"Steventown","cep":"41299-150","municipio":"Gilbertmouth","estado":"WA"},{"id":"6559469882f89b53c9dbe083","nome":"Christopher","sobrenome":"Love","cpf":"45803215880","idade":2,"sexo":"Feminino","contato":"001-925-710-9305x28222","logradouro":"5251 Stanley Prairie Apt. 759","numero":"11","bairro":"Lake Kaylahaven","cep":"41299-150","municipio":"Ryanshire","estado":"OK"},{"id":"6559469982f89b53c9dbe084","nome":"Stephanie","sobrenome":"Perez","cpf":"07584854419","idade":53,"sexo":"Masculino","contato":"(285)354-6437x42189","logradouro":"64775 Adam Road","numero":"6","bairro":"North Michael","cep":"00000-000","municipio":"East Michaelberg","estado":"KY"},{"id":"6559469a82f89b53c9dbe085","nome":"Jenna","sobrenome":"Jennings","cpf":"24430173036","idade":22,"sexo":"Masculino","contato":"7412994259","logradouro":"21309 Jimenez Underpass","numero":"61","bairro":"East Brittanyton","cep":"41299-150","municipio":"North Erinburgh","estado":"VT"},{"id":"6559474882f89b53c9dbe088","nome":"Christopher","sobrenome":"Andrade","cpf":"25962019415","idade":17,"sexo":"Feminino","contato":"001-937-818-9645x4736","logradouro":"660 Montes Dale Apt. 001","numero":"65","bairro":"East Mark","cep":"41299-150","municipio":"East Brittneymouth","estado":"NC"},{"id":"6559474982f89b53c9dbe089","nome":"Kyle","sobrenome":"Collins","cpf":"28128821075","idade":70,"sexo":"Masculino","contato":"224.655.0925","logradouro":"81530 Griffin Canyon Suite 343","numero":"38","bairro":"Port Jenniferton","cep":"00000-000","municipio":"South Jennifer","estado":"DC"},{"id":"6559474a82f89b53c9dbe08a","nome":"Courtney","sobrenome":"Goodwin","cpf":"09035910141","idade":55,"sexo":"Feminino","contato":"901.679.8479x017","logradouro":"0862 Bauer Islands","numero":"69","bairro":"Lake Marissachester","cep":"41299-150","municipio":"Port Matthew","estado":"NC"},{"id":"6559477d82f89b53c9dbe08c","nome":"David","sobrenome":"Simon","cpf":"20684428849","idade":78,"sexo":"Feminino","contato":"+1-449-831-6470x0747","logradouro":"0584 Richard Ways Suite 999","numero":"90","bairro":"Mullinsberg","cep":"41299-150","municipio":"West Jacqueline","estado":"MA"},{"id":"6559477e82f89b53c9dbe08d","nome":"Danny","sobrenome":"Nelson","cpf":"86511873609","idade":40,"sexo":"Masculino","contato":"205.496.2597","logradouro":"34509 Aimee Underpass","numero":"86","bairro":"East Jennifer","cep":"00000-000","municipio":"Jeffside","estado":"WV"},{"id":"6559477f82f89b53c9dbe08e","nome":"Angelica","sobrenome":"Flowers","cpf":"61024999300","idade":97,"sexo":"Masculino","contato":"(846)253-8040x7692","logradouro":"248 Camacho Prairie Apt. 055","numero":"54","bairro":"New Paul","cep":"41299-150","municipio":"Jonesburgh","estado":"ND"},{"id":"655952dd82f89b53c9dbe091","nome":"Jennifer","sobrenome":"Molina","cpf":"14010893052","idade":97,"sexo":"Masculino","contato":"212.306.3854x680","logradouro":"020 John Mount","numero":"95","bairro":"Carolinefort","cep":"41299-150","municipio":"South Jordan","estado":"OR"},{"id":"655957c482f89b53c9dbe092","nome":"Jesse","sobrenome":"Hall","cpf":"84873967473","idade":49,"sexo":"Feminino","contato":"(386)888-7904x355","logradouro":"960 Black Dale","numero":"20","bairro":"South Jasonshire","cep":"41299-150","municipio":"East Garyberg","estado":"MI"},{"id":"655957f482f89b53c9dbe093","nome":"Keith","sobrenome":"Russell","cpf":"95956381299","idade":50,"sexo":"Feminino","contato":"778.998.6491x589","logradouro":"05536 Pamela Walks","numero":"26","bairro":"Lake Clinton","cep":"41299-150","municipio":"Gonzalezchester","estado":"WY"},{"id":"6559581e82f89b53c9dbe094","nome":"Jonathan","sobrenome":"Young","cpf":"49696921810","idade":50,"sexo":"Feminino","contato":"(520)516-2710x06682","logradouro":"99956 Jason Spur","numero":"10","bairro":"Randallfort","cep":"41299-150","municipio":"New Nathaniel","estado":"AR"},{"id":"6559583c82f89b53c9dbe095","nome":"Michael","sobrenome":"Zuniga","cpf":"94060915181","idade":98,"sexo":"Masculino","contato":"+1-447-307-3153x240","logradouro":"1626 Kelley Stream Apt. 642","numero":"96","bairro":"Robertland","cep":"41299-150","municipio":"New Abigail","estado":"MO"},{"id":"6559587d82f89b53c9dbe096","nome":"Ashley","sobrenome":"Tyler","cpf":"87644994564","idade":20,"sexo":"Masculino","contato":"+1-880-373-0269x66322","logradouro":"47030 Mallory Rest Suite 895","numero":"51","bairro":"Port Deborah","cep":"41299-150","municipio":"New Kellytown","estado":"ID"},{"id":"655958e182f89b53c9dbe097","nome":"Monique","sobrenome":"Velez","cpf":"29765172230","idade":27,"sexo":"Feminino","contato":"001-427-296-8296x83702","logradouro":"7578 Mark Inlet","numero":"29","bairro":"Stoneborough","cep":"41299-150","municipio":"West John","estado":"KS"},{"id":"65595b1b82f89b53c9dbe098","nome":"Patricia","sobrenome":"Parker","cpf":"81281994804","idade":56,"sexo":"Masculino","contato":"280.934.7271x264","logradouro":"59011 Thomas Plains","numero":"61","bairro":"Michaelland","cep":"41299-150","municipio":"New Toddstad","estado":"AL"},{"id":"65595bce82f89b53c9dbe099","nome":"Brandon","sobrenome":"Mitchell","cpf":"05457030857","idade":22,"sexo":"Masculino","contato":"(843)361-6159x9960","logradouro":"6408 Richard Terrace Apt. 060","numero":"97","bairro":"Holmesview","cep":"41299-150","municipio":"Morrisstad","estado":"OR"},{"id":"65595c4482f89b53c9dbe09a","nome":"Jessica","sobrenome":"Berry","cpf":"04866166061","idade":13,"sexo":"Masculino","contato":"(911)733-8300x635","logradouro":"86863 Armstrong Ford","numero":"28","bairro":"Lake Jeffreyview","cep":"41299-150","municipio":"Bowenhaven","estado":"OH"},{"id":"65595c7482f89b53c9dbe09b","nome":"Joseph","sobrenome":"Anderson","cpf":"70779215818","idade":59,"sexo":"Masculino","contato":"6716098326","logradouro":"90912 Melanie Rest","numero":"52","bairro":"Kennethtown","cep":"41299-150","municipio":"Port Cheyenne","estado":"DE"},{"id":"65595c9c82f89b53c9dbe09c","nome":"Ashley","sobrenome":"Hopkins","cpf":"25545724028","idade":55,"sexo":"Feminino","contato":"5872870137","logradouro":"4610 Cynthia Fort","numero":"2","bairro":"East Kristen","cep":"41299-150","municipio":"Dixonfurt","estado":"PR"},{"id":"65595cc082f89b53c9dbe09d","nome":"Courtney","sobrenome":"Montgomery","cpf":"56323374137","idade":41,"sexo":"Feminino","contato":"971-857-7106","logradouro":"496 Bradford Dam","numero":"53","bairro":"West Ashleyberg","cep":"41299-150","municipio":"West Erin","estado":"AK"},{"id":"65595cd782f89b53c9dbe09e","nome":"Brandon","sobrenome":"Ruiz","cpf":"48266225974","idade":72,"sexo":"Feminino","contato":"(366)382-8670","logradouro":"9737 Kathleen Dam","numero":"91","bairro":"Gregoryberg","cep":"41299-150","municipio":"Vangside","estado":"PA"},{"id":"65595d2882f89b53c9dbe09f","nome":"Kimberly","sobrenome":"Willis","cpf":"32926955898","idade":5,"sexo":"Feminino","contato":"+1-335-446-3482x3401","logradouro":"009 Katelyn Stravenue Apt. 495","numero":"24","bairro":"East Amanda","cep":"41299-150","municipio":"South Paulville","estado":"LA"},{"id":"65595df382f89b53c9dbe0a0","nome":"Rachel","sobrenome":"Wilson","cpf":"29886404833","idade":79,"sexo":"Feminino","contato":"402-930-8895x77148","logradouro":"512 Allen Plain Apt. 619","numero":"54","bairro":"Jefferyport","cep":"41299-150","municipio":"Port Kelly","estado"... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20231118 22:02:01.672" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:01.672" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:01.131" endtime="20231118 22:02:01.672"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${PACIENTE-BASEURL}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:01.672" level="INFO">https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes</msg>
+<status status="PASS" starttime="20231118 22:02:01.672" endtime="20231118 22:02:01.672"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:01.673" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:01.673" endtime="20231118 22:02:01.673"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:01.131" endtime="20231118 22:02:01.673"/>
+</kw>
+<kw name="then Valido Status code" library="Pacientes">
+<arg>200</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:01.673" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:01.673" endtime="20231118 22:02:01.673"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:01.675" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:01.673" endtime="20231118 22:02:01.675"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:01.673" endtime="20231118 22:02:01.675"/>
+</kw>
+<tag>APIPacientes</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:01.129" endtime="20231118 22:02:01.675"/>
+</test>
+<test id="s1-s1-t2" name="Scenario 4: Aquele que eu crio um novo paciente" line="27">
+<kw name="Given Que eu cadastro um novo paciente" library="Pacientes">
+<doc>Adicionando um novo paciente</doc>
+<kw name="Gerando Novo Paciente" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:01.680" level="INFO">{
+    "nome": "Lisa",
+    "sobrenome": "Mcneil",
+    "cpf": "18298159209",
+    "idade": 18,
+    "sexo": "Feminino",
+    "contato": "366-566-2375x016",
+    "logradouro": "16338 Isaac Throughway Apt. 591",
+    "numero": 11,
+    "bairro": "Moraleshaven",
+    "cep": "41299-150",
+    "municipio": "Kathyside",
+    "estado": "OR"
+}</msg>
+<msg timestamp="20231118 22:02:01.681" level="INFO">${PacienteData} = {
+    "nome": "Lisa",
+    "sobrenome": "Mcneil",
+    "cpf": "18298159209",
+    "idade": 18,
+    "sexo": "Feminino",
+    "contato": "366-566-2375x016",
+    "logradouro": "16338 Isaac Throughway Apt. 59...</msg>
+<status status="PASS" starttime="20231118 22:02:01.678" endtime="20231118 22:02:01.681"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${PacienteData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:01.681" level="INFO">PacienteData: {
+    "nome": "Lisa",
+    "sobrenome": "Mcneil",
+    "cpf": "18298159209",
+    "idade": 18,
+    "sexo": "Feminino",
+    "contato": "366-566-2375x016",
+    "logradouro": "16338 Isaac Throughway Apt. 591",
+    "numero": 11,
+    "bairro": "Moraleshaven",
+    "cep": "41299-150",
+    "municipio": "Kathyside",
+    "estado": "OR"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:01.681" endtime="20231118 22:02:01.681"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:01.682" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:01.681" endtime="20231118 22:02:01.682"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:02.190" level="INFO">POST Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ path_url=/api/pacientes/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '326'} 
+ body={
+    "nome": "Lisa",
+    "sobrenome": "Mcneil",
+    "cpf": "18298159209",
+    "idade": 18,
+    "sexo": "Feminino",
+    "contato": "366-566-2375x016",
+    "logradouro": "16338 Isaac Throughway Apt. 591",
+    "numero": 11,
+    "bairro": "Moraleshaven",
+    "cep": "41299-150",
+    "municipio": "Kathyside",
+    "estado": "OR"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:02.190" level="INFO">POST Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355723&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=GovaxxJ%2B8SMwAnN%2BWCXHnfMBKIn3ajaTBAPfuuVZ6Hk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355723&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=GovaxxJ%2B8SMwAnN%2BWCXHnfMBKIn3ajaTBAPfuuVZ6Hk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:02 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e8b82f89b53c9dbe0a4","nome":"Lisa","sobrenome":"Mcneil","cpf":"18298159209","idade":18,"sexo":"Feminino","contato":"366-566-2375x016","logradouro":"16338 Isaac Throughway Apt. 591","numero":"11","bairro":"Moraleshaven","cep":"41299-150","municipio":"Kathyside","estado":"OR"} 
+ </msg>
+<msg timestamp="20231118 22:02:02.190" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:02.191" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:01.682" endtime="20231118 22:02:02.191"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:02.191" level="INFO">${response_dict} = {'id': '65595e8b82f89b53c9dbe0a4', 'nome': 'Lisa', 'sobrenome': 'Mcneil', 'cpf': '18298159209', 'idade': 18, 'sexo': 'Feminino', 'contato': '366-566-2375x016', 'logradouro': '16338 Isaac Throughway Ap...</msg>
+<status status="PASS" starttime="20231118 22:02:02.191" endtime="20231118 22:02:02.191"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${response_dict}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:02.192" level="INFO">PacienteData: {'id': '65595e8b82f89b53c9dbe0a4', 'nome': 'Lisa', 'sobrenome': 'Mcneil', 'cpf': '18298159209', 'idade': 18, 'sexo': 'Feminino', 'contato': '366-566-2375x016', 'logradouro': '16338 Isaac Throughway Apt. 591', 'numero': '11', 'bairro': 'Moraleshaven', 'cep': '41299-150', 'municipio': 'Kathyside', 'estado': 'OR'}</msg>
+<status status="PASS" starttime="20231118 22:02:02.191" endtime="20231118 22:02:02.192"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteNome}</var>
+<arg>${response_dict["nome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:02.192" level="INFO">${PacienteNome} = Lisa</msg>
+<status status="PASS" starttime="20231118 22:02:02.192" endtime="20231118 22:02:02.192"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteSobrenome}</var>
+<arg>${response_dict["sobrenome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:02.192" level="INFO">${PacienteSobrenome} = Mcneil</msg>
+<status status="PASS" starttime="20231118 22:02:02.192" endtime="20231118 22:02:02.192"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:02.193" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.192" endtime="20231118 22:02:02.193"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteNome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:02.193" level="INFO">${PacienteNome} = Lisa</msg>
+<status status="PASS" starttime="20231118 22:02:02.193" endtime="20231118 22:02:02.193"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteSobrenome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:02.193" level="INFO">${PacienteSobrenome} = Mcneil</msg>
+<status status="PASS" starttime="20231118 22:02:02.193" endtime="20231118 22:02:02.193"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${PacienteID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:02.193" level="INFO">${PacienteID} = 65595e8b82f89b53c9dbe0a4</msg>
+<status status="PASS" starttime="20231118 22:02:02.193" endtime="20231118 22:02:02.195"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:01.678" endtime="20231118 22:02:02.195"/>
+</kw>
+<kw name="then Valido Status code" library="Pacientes">
+<arg>201</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:02.195" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.195" endtime="20231118 22:02:02.195"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:02.196" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.195" endtime="20231118 22:02:02.196"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:02.195" endtime="20231118 22:02:02.196"/>
+</kw>
+<tag>APIPacientes</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:01.677" endtime="20231118 22:02:02.196"/>
+</test>
+<test id="s1-s1-t3" name="Scenario 5: Aquele que eu tento criar um novo paciente um CPF invalido" line="32">
+<kw name="Given Que eu tento cadastrar um paciente com CPF invalido" library="Pacientes">
+<doc>Adicionando um novo paciente</doc>
+<kw name="Gerando Novo Paciente CPF Invalido" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:02.201" level="INFO">{
+    "nome": "Christopher",
+    "sobrenome": "Bates",
+    "cpf": "469-37-0790",
+    "idade": 32,
+    "sexo": "Masculino",
+    "contato": "330-425-9068",
+    "logradouro": "2923 Arroyo Village Apt. 235",
+    "numero": 85,
+    "bairro": "New Amanda",
+    "cep": "41299-150",
+    "municipio": "Josephville",
+    "estado": "KS"
+}</msg>
+<msg timestamp="20231118 22:02:02.201" level="INFO">${PacienteData} = {
+    "nome": "Christopher",
+    "sobrenome": "Bates",
+    "cpf": "469-37-0790",
+    "idade": 32,
+    "sexo": "Masculino",
+    "contato": "330-425-9068",
+    "logradouro": "2923 Arroyo Village Apt. 23...</msg>
+<status status="PASS" starttime="20231118 22:02:02.199" endtime="20231118 22:02:02.202"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${PacienteData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:02.202" level="INFO">PacienteData: {
+    "nome": "Christopher",
+    "sobrenome": "Bates",
+    "cpf": "469-37-0790",
+    "idade": 32,
+    "sexo": "Masculino",
+    "contato": "330-425-9068",
+    "logradouro": "2923 Arroyo Village Apt. 235",
+    "numero": 85,
+    "bairro": "New Amanda",
+    "cep": "41299-150",
+    "municipio": "Josephville",
+    "estado": "KS"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:02.202" endtime="20231118 22:02:02.202"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:02.202" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:02.202" endtime="20231118 22:02:02.203"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>expected_status=any</arg>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:02.706" level="INFO">POST Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ path_url=/api/pacientes/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '326'} 
+ body={
+    "nome": "Christopher",
+    "sobrenome": "Bates",
+    "cpf": "469-37-0790",
+    "idade": 32,
+    "sexo": "Masculino",
+    "contato": "330-425-9068",
+    "logradouro": "2923 Arroyo Village Apt. 235",
+    "numero": 85,
+    "bairro": "New Amanda",
+    "cep": "41299-150",
+    "municipio": "Josephville",
+    "estado": "KS"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:02.706" level="INFO">POST Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ status=422, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355723&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=GovaxxJ%2B8SMwAnN%2BWCXHnfMBKIn3ajaTBAPfuuVZ6Hk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355723&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=GovaxxJ%2B8SMwAnN%2BWCXHnfMBKIn3ajaTBAPfuuVZ6Hk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:03 GMT', 'Via': '1.1 vegur'} 
+ body={"status":422,"message":"Validation error. Check 'errors' field for details.","errors":[{"field":"cpf","message":"invalid Brazilian individual taxpayer registry number (CPF)"}]} 
+ </msg>
+<msg timestamp="20231118 22:02:02.706" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:02.707" level="INFO">${RESPONSE} = &lt;Response [422]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.203" endtime="20231118 22:02:02.707"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:02.709" level="INFO">${response_dict} = {'status': 422, 'message': "Validation error. Check 'errors' field for details.", 'errors': [{'field': 'cpf', 'message': 'invalid Brazilian individual taxpayer registry number (CPF)'}]}</msg>
+<status status="PASS" starttime="20231118 22:02:02.708" endtime="20231118 22:02:02.709"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:02.709" level="INFO">${RESPONSE} = &lt;Response [422]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.709" endtime="20231118 22:02:02.709"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:02.199" endtime="20231118 22:02:02.709"/>
+</kw>
+<kw name="then Valido Status code" library="Pacientes">
+<arg>422</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:02.711" level="INFO">${RESPONSE} = &lt;Response [422]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.711" endtime="20231118 22:02:02.711"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:02.712" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.711" endtime="20231118 22:02:02.712"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:02.710" endtime="20231118 22:02:02.712"/>
+</kw>
+<tag>APIPacientes</tag>
+<tag>Negativo</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:02.198" endtime="20231118 22:02:02.713"/>
+</test>
+<test id="s1-s1-t4" name="Scenario 6: Aquele que eu tento criar um novo paciente um CEP invalido" line="37">
+<kw name="Given Que eu tento cadastrar um paciente com CEP invalido" library="Pacientes">
+<doc>Adicionando um novo paciente</doc>
+<kw name="Gerando Novo Paciente CEP Invalido" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:02.721" level="INFO">{
+    "nome": "Sarah",
+    "sobrenome": "Rivera",
+    "cpf": "51406100439",
+    "idade": 34,
+    "sexo": "Masculino",
+    "contato": "+1-378-551-3932x98280",
+    "logradouro": "017 Carpenter Turnpike Apt. 854",
+    "numero": 57,
+    "bairro": "Elizabethfort",
+    "cep": "00000-000",
+    "municipio": "Tanyaburgh",
+    "estado": "NJ"
+}</msg>
+<msg timestamp="20231118 22:02:02.721" level="INFO">${PacienteData} = {
+    "nome": "Sarah",
+    "sobrenome": "Rivera",
+    "cpf": "51406100439",
+    "idade": 34,
+    "sexo": "Masculino",
+    "contato": "+1-378-551-3932x98280",
+    "logradouro": "017 Carpenter Turnpike ...</msg>
+<status status="PASS" starttime="20231118 22:02:02.717" endtime="20231118 22:02:02.721"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${PacienteData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:02.722" level="INFO">PacienteData: {
+    "nome": "Sarah",
+    "sobrenome": "Rivera",
+    "cpf": "51406100439",
+    "idade": 34,
+    "sexo": "Masculino",
+    "contato": "+1-378-551-3932x98280",
+    "logradouro": "017 Carpenter Turnpike Apt. 854",
+    "numero": 57,
+    "bairro": "Elizabethfort",
+    "cep": "00000-000",
+    "municipio": "Tanyaburgh",
+    "estado": "NJ"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:02.721" endtime="20231118 22:02:02.722"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:02.723" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:02.722" endtime="20231118 22:02:02.723"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>expected_status=any</arg>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:03.221" level="INFO">POST Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ path_url=/api/pacientes/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '335'} 
+ body={
+    "nome": "Sarah",
+    "sobrenome": "Rivera",
+    "cpf": "51406100439",
+    "idade": 34,
+    "sexo": "Masculino",
+    "contato": "+1-378-551-3932x98280",
+    "logradouro": "017 Carpenter Turnpike Apt. 854",
+    "numero": 57,
+    "bairro": "Elizabethfort",
+    "cep": "00000-000",
+    "municipio": "Tanyaburgh",
+    "estado": "NJ"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:03.221" level="INFO">POST Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355724&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=JeZTbHyLwbjQxmR8DrEfwUuszrrvK0fMHbJ381BJBe8%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355724&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=JeZTbHyLwbjQxmR8DrEfwUuszrrvK0fMHbJ381BJBe8%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:03 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e8c82f89b53c9dbe0a5","nome":"Sarah","sobrenome":"Rivera","cpf":"51406100439","idade":34,"sexo":"Masculino","contato":"+1-378-551-3932x98280","logradouro":"017 Carpenter Turnpike Apt. 854","numero":"57","bairro":"Elizabethfort","cep":"00000-000","municipio":"Tanyaburgh","estado":"NJ"} 
+ </msg>
+<msg timestamp="20231118 22:02:03.221" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:03.222" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:02.724" endtime="20231118 22:02:03.222"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:03.222" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:03.222" endtime="20231118 22:02:03.222"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:02.716" endtime="20231118 22:02:03.222"/>
+</kw>
+<kw name="then Valido Status code" library="Pacientes">
+<arg>201</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:03.223" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:03.223" endtime="20231118 22:02:03.223"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:03.224" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:03.223" endtime="20231118 22:02:03.224"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:03.223" endtime="20231118 22:02:03.224"/>
+</kw>
+<tag>APIPacientes</tag>
+<tag>Negativo</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:02.715" endtime="20231118 22:02:03.225"/>
+</test>
+<test id="s1-s1-t5" name="Scenario 7: Aquele que eu edito um paciente" line="42">
+<kw name="Given Que eu cadastro um novo paciente" library="Pacientes">
+<doc>Adicionando um novo paciente</doc>
+<kw name="Gerando Novo Paciente" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:03.230" level="INFO">{
+    "nome": "Kathryn",
+    "sobrenome": "Baldwin",
+    "cpf": "50132096250",
+    "idade": 6,
+    "sexo": "Masculino",
+    "contato": "617.328.5433",
+    "logradouro": "0855 Evan Roads Suite 689",
+    "numero": 2,
+    "bairro": "New Kristymouth",
+    "cep": "41299-150",
+    "municipio": "Port Emilybury",
+    "estado": "KY"
+}</msg>
+<msg timestamp="20231118 22:02:03.230" level="INFO">${PacienteData} = {
+    "nome": "Kathryn",
+    "sobrenome": "Baldwin",
+    "cpf": "50132096250",
+    "idade": 6,
+    "sexo": "Masculino",
+    "contato": "617.328.5433",
+    "logradouro": "0855 Evan Roads Suite 689",
+  ...</msg>
+<status status="PASS" starttime="20231118 22:02:03.227" endtime="20231118 22:02:03.230"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${PacienteData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:03.230" level="INFO">PacienteData: {
+    "nome": "Kathryn",
+    "sobrenome": "Baldwin",
+    "cpf": "50132096250",
+    "idade": 6,
+    "sexo": "Masculino",
+    "contato": "617.328.5433",
+    "logradouro": "0855 Evan Roads Suite 689",
+    "numero": 2,
+    "bairro": "New Kristymouth",
+    "cep": "41299-150",
+    "municipio": "Port Emilybury",
+    "estado": "KY"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:03.230" endtime="20231118 22:02:03.230"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:03.231" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:03.230" endtime="20231118 22:02:03.231"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:03.751" level="INFO">POST Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ path_url=/api/pacientes/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '327'} 
+ body={
+    "nome": "Kathryn",
+    "sobrenome": "Baldwin",
+    "cpf": "50132096250",
+    "idade": 6,
+    "sexo": "Masculino",
+    "contato": "617.328.5433",
+    "logradouro": "0855 Evan Roads Suite 689",
+    "numero": 2,
+    "bairro": "New Kristymouth",
+    "cep": "41299-150",
+    "municipio": "Port Emilybury",
+    "estado": "KY"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:03.752" level="INFO">POST Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355724&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=JeZTbHyLwbjQxmR8DrEfwUuszrrvK0fMHbJ381BJBe8%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355724&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=JeZTbHyLwbjQxmR8DrEfwUuszrrvK0fMHbJ381BJBe8%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:05 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e8c82f89b53c9dbe0a6","nome":"Kathryn","sobrenome":"Baldwin","cpf":"50132096250","idade":6,"sexo":"Masculino","contato":"617.328.5433","logradouro":"0855 Evan Roads Suite 689","numero":"2","bairro":"New Kristymouth","cep":"41299-150","municipio":"Port Emilybury","estado":"KY"} 
+ </msg>
+<msg timestamp="20231118 22:02:03.752" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:03.754" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:03.231" endtime="20231118 22:02:03.755"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:03.757" level="INFO">${response_dict} = {'id': '65595e8c82f89b53c9dbe0a6', 'nome': 'Kathryn', 'sobrenome': 'Baldwin', 'cpf': '50132096250', 'idade': 6, 'sexo': 'Masculino', 'contato': '617.328.5433', 'logradouro': '0855 Evan Roads Suite 689...</msg>
+<status status="PASS" starttime="20231118 22:02:03.755" endtime="20231118 22:02:03.757"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${response_dict}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:03.758" level="INFO">PacienteData: {'id': '65595e8c82f89b53c9dbe0a6', 'nome': 'Kathryn', 'sobrenome': 'Baldwin', 'cpf': '50132096250', 'idade': 6, 'sexo': 'Masculino', 'contato': '617.328.5433', 'logradouro': '0855 Evan Roads Suite 689', 'numero': '2', 'bairro': 'New Kristymouth', 'cep': '41299-150', 'municipio': 'Port Emilybury', 'estado': 'KY'}</msg>
+<status status="PASS" starttime="20231118 22:02:03.758" endtime="20231118 22:02:03.758"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteNome}</var>
+<arg>${response_dict["nome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:03.760" level="INFO">${PacienteNome} = Kathryn</msg>
+<status status="PASS" starttime="20231118 22:02:03.759" endtime="20231118 22:02:03.760"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteSobrenome}</var>
+<arg>${response_dict["sobrenome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:03.762" level="INFO">${PacienteSobrenome} = Baldwin</msg>
+<status status="PASS" starttime="20231118 22:02:03.760" endtime="20231118 22:02:03.762"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:03.763" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:03.762" endtime="20231118 22:02:03.763"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteNome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:03.764" level="INFO">${PacienteNome} = Kathryn</msg>
+<status status="PASS" starttime="20231118 22:02:03.763" endtime="20231118 22:02:03.764"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteSobrenome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:03.765" level="INFO">${PacienteSobrenome} = Baldwin</msg>
+<status status="PASS" starttime="20231118 22:02:03.764" endtime="20231118 22:02:03.765"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${PacienteID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:03.766" level="INFO">${PacienteID} = 65595e8c82f89b53c9dbe0a6</msg>
+<status status="PASS" starttime="20231118 22:02:03.765" endtime="20231118 22:02:03.766"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:03.227" endtime="20231118 22:02:03.766"/>
+</kw>
+<kw name="And Eu edito um paciente existente" library="Pacientes">
+<kw name="Gerando Novo Paciente" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:03.772" level="INFO">{
+    "nome": "Samuel",
+    "sobrenome": "Scott",
+    "cpf": "80160791219",
+    "idade": 12,
+    "sexo": "Feminino",
+    "contato": "(694)940-8122x5702",
+    "logradouro": "868 Jennifer Ville",
+    "numero": 46,
+    "bairro": "East Marilyn",
+    "cep": "41299-150",
+    "municipio": "Phamshire",
+    "estado": "KY"
+}</msg>
+<msg timestamp="20231118 22:02:03.773" level="INFO">${PacienteData} = {
+    "nome": "Samuel",
+    "sobrenome": "Scott",
+    "cpf": "80160791219",
+    "idade": 12,
+    "sexo": "Feminino",
+    "contato": "(694)940-8122x5702",
+    "logradouro": "868 Jennifer Ville",
+    "n...</msg>
+<status status="PASS" starttime="20231118 22:02:03.768" endtime="20231118 22:02:03.773"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/${PacienteNome}/${PacienteSobrenome}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:03.773" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/Kathryn/Baldwin, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:03.773" endtime="20231118 22:02:03.775"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/${PacienteNome}/${PacienteSobrenome}</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:04.292" level="INFO">PUT Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/Kathryn/Baldwin 
+ path_url=/api/pacientes/Kathryn/Baldwin 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '316'} 
+ body={
+    "nome": "Samuel",
+    "sobrenome": "Scott",
+    "cpf": "80160791219",
+    "idade": 12,
+    "sexo": "Feminino",
+    "contato": "(694)940-8122x5702",
+    "logradouro": "868 Jennifer Ville",
+    "numero": 46,
+    "bairro": "East Marilyn",
+    "cep": "41299-150",
+    "municipio": "Phamshire",
+    "estado": "KY"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:04.293" level="INFO">PUT Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/Kathryn/Baldwin 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355725&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=%2B2ssvLCwJ61Xlk6%2BDEJts6MJXdC8HtieOgRjXV4U1tc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355725&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=%2B2ssvLCwJ61Xlk6%2BDEJts6MJXdC8HtieOgRjXV4U1tc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:05 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e8c82f89b53c9dbe0a6","nome":"Samuel","sobrenome":"Scott","cpf":"80160791219","idade":12,"sexo":"Feminino","contato":"(694)940-8122x5702","logradouro":"868 Jennifer Ville","numero":"46","bairro":"East Marilyn","cep":"41299-150","municipio":"Phamshire","estado":"KY"} 
+ </msg>
+<msg timestamp="20231118 22:02:04.293" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:04.295" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:03.775" endtime="20231118 22:02:04.295"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:04.297" level="INFO">${response_dict} = {'id': '65595e8c82f89b53c9dbe0a6', 'nome': 'Samuel', 'sobrenome': 'Scott', 'cpf': '80160791219', 'idade': 12, 'sexo': 'Feminino', 'contato': '(694)940-8122x5702', 'logradouro': '868 Jennifer Ville', '...</msg>
+<status status="PASS" starttime="20231118 22:02:04.295" endtime="20231118 22:02:04.297"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${response_dict}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:04.297" level="INFO">PacienteData: {'id': '65595e8c82f89b53c9dbe0a6', 'nome': 'Samuel', 'sobrenome': 'Scott', 'cpf': '80160791219', 'idade': 12, 'sexo': 'Feminino', 'contato': '(694)940-8122x5702', 'logradouro': '868 Jennifer Ville', 'numero': '46', 'bairro': 'East Marilyn', 'cep': '41299-150', 'municipio': 'Phamshire', 'estado': 'KY'}</msg>
+<status status="PASS" starttime="20231118 22:02:04.297" endtime="20231118 22:02:04.297"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:04.298" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:04.297" endtime="20231118 22:02:04.298"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:03.767" endtime="20231118 22:02:04.298"/>
+</kw>
+<kw name="then Valido Status code" library="Pacientes">
+<arg>200</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:04.300" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:04.299" endtime="20231118 22:02:04.300"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:04.301" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:04.300" endtime="20231118 22:02:04.301"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:04.299" endtime="20231118 22:02:04.301"/>
+</kw>
+<tag>APIPacientes</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:03.226" endtime="20231118 22:02:04.302"/>
+</test>
+<test id="s1-s1-t6" name="Scenario 8: Aquele que eu deleto um paciente" line="48">
+<kw name="Given Que eu cadastro um novo paciente" library="Pacientes">
+<doc>Adicionando um novo paciente</doc>
+<kw name="Gerando Novo Paciente" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:04.310" level="INFO">{
+    "nome": "Sarah",
+    "sobrenome": "Fleming",
+    "cpf": "82175662241",
+    "idade": 66,
+    "sexo": "Masculino",
+    "contato": "893-329-0832",
+    "logradouro": "64456 Payne Hill Suite 990",
+    "numero": 63,
+    "bairro": "Barrettview",
+    "cep": "41299-150",
+    "municipio": "South David",
+    "estado": "IA"
+}</msg>
+<msg timestamp="20231118 22:02:04.311" level="INFO">${PacienteData} = {
+    "nome": "Sarah",
+    "sobrenome": "Fleming",
+    "cpf": "82175662241",
+    "idade": 66,
+    "sexo": "Masculino",
+    "contato": "893-329-0832",
+    "logradouro": "64456 Payne Hill Suite 990",
+  ...</msg>
+<status status="PASS" starttime="20231118 22:02:04.306" endtime="20231118 22:02:04.311"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${PacienteData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:04.311" level="INFO">PacienteData: {
+    "nome": "Sarah",
+    "sobrenome": "Fleming",
+    "cpf": "82175662241",
+    "idade": 66,
+    "sexo": "Masculino",
+    "contato": "893-329-0832",
+    "logradouro": "64456 Payne Hill Suite 990",
+    "numero": 63,
+    "bairro": "Barrettview",
+    "cep": "41299-150",
+    "municipio": "South David",
+    "estado": "IA"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:04.311" endtime="20231118 22:02:04.311"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:04.312" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:04.312" endtime="20231118 22:02:04.312"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:04.811" level="INFO">POST Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ path_url=/api/pacientes/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '321'} 
+ body={
+    "nome": "Sarah",
+    "sobrenome": "Fleming",
+    "cpf": "82175662241",
+    "idade": 66,
+    "sexo": "Masculino",
+    "contato": "893-329-0832",
+    "logradouro": "64456 Payne Hill Suite 990",
+    "numero": 63,
+    "bairro": "Barrettview",
+    "cep": "41299-150",
+    "municipio": "South David",
+    "estado": "IA"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:04.811" level="INFO">POST Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355726&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=01YJkT2Xzl3ifqQUaiwzDjKEC2bE0mj9VFvOgLWxb4c%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355726&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=01YJkT2Xzl3ifqQUaiwzDjKEC2bE0mj9VFvOgLWxb4c%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:06 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e8e82f89b53c9dbe0a7","nome":"Sarah","sobrenome":"Fleming","cpf":"82175662241","idade":66,"sexo":"Masculino","contato":"893-329-0832","logradouro":"64456 Payne Hill Suite 990","numero":"63","bairro":"Barrettview","cep":"41299-150","municipio":"South David","estado":"IA"} 
+ </msg>
+<msg timestamp="20231118 22:02:04.811" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:04.812" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:04.312" endtime="20231118 22:02:04.812"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:04.812" level="INFO">${response_dict} = {'id': '65595e8e82f89b53c9dbe0a7', 'nome': 'Sarah', 'sobrenome': 'Fleming', 'cpf': '82175662241', 'idade': 66, 'sexo': 'Masculino', 'contato': '893-329-0832', 'logradouro': '64456 Payne Hill Suite 990...</msg>
+<status status="PASS" starttime="20231118 22:02:04.812" endtime="20231118 22:02:04.812"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${response_dict}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:04.813" level="INFO">PacienteData: {'id': '65595e8e82f89b53c9dbe0a7', 'nome': 'Sarah', 'sobrenome': 'Fleming', 'cpf': '82175662241', 'idade': 66, 'sexo': 'Masculino', 'contato': '893-329-0832', 'logradouro': '64456 Payne Hill Suite 990', 'numero': '63', 'bairro': 'Barrettview', 'cep': '41299-150', 'municipio': 'South David', 'estado': 'IA'}</msg>
+<status status="PASS" starttime="20231118 22:02:04.813" endtime="20231118 22:02:04.813"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteNome}</var>
+<arg>${response_dict["nome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:04.814" level="INFO">${PacienteNome} = Sarah</msg>
+<status status="PASS" starttime="20231118 22:02:04.813" endtime="20231118 22:02:04.814"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteSobrenome}</var>
+<arg>${response_dict["sobrenome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:04.815" level="INFO">${PacienteSobrenome} = Fleming</msg>
+<status status="PASS" starttime="20231118 22:02:04.814" endtime="20231118 22:02:04.815"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:04.815" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:04.815" endtime="20231118 22:02:04.815"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteNome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:04.816" level="INFO">${PacienteNome} = Sarah</msg>
+<status status="PASS" starttime="20231118 22:02:04.815" endtime="20231118 22:02:04.816"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteSobrenome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:04.816" level="INFO">${PacienteSobrenome} = Fleming</msg>
+<status status="PASS" starttime="20231118 22:02:04.816" endtime="20231118 22:02:04.816"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${PacienteID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:04.817" level="INFO">${PacienteID} = 65595e8e82f89b53c9dbe0a7</msg>
+<status status="PASS" starttime="20231118 22:02:04.816" endtime="20231118 22:02:04.817"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:04.306" endtime="20231118 22:02:04.817"/>
+</kw>
+<kw name="Then Que eu deleto um paciente" library="Pacientes">
+<doc>Remove o paciente criado utilizando o nome e sobrenome</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:04.818" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Sarah/Fleming, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:04.817" endtime="20231118 22:02:04.818"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:05.330" level="INFO">DELETE Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Sarah/Fleming 
+ path_url=/api/pacientes/excluir/Sarah/Fleming 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:05.330" level="INFO">DELETE Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Sarah/Fleming 
+ status=204, reason= 
+ headers={'Server': 'Cowboy', 'Content-Length': '0', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355726&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=01YJkT2Xzl3ifqQUaiwzDjKEC2bE0mj9VFvOgLWxb4c%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355726&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=01YJkT2Xzl3ifqQUaiwzDjKEC2bE0mj9VFvOgLWxb4c%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Date': 'Sun, 19 Nov 2023 01:02:06 GMT', 'Via': '1.1 vegur'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:05.330" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:05.331" level="INFO">${RESPONSE} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:04.818" endtime="20231118 22:02:05.331"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:05.332" level="INFO">${RESPONSE} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:05.331" endtime="20231118 22:02:05.332"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:04.817" endtime="20231118 22:02:05.332"/>
+</kw>
+<kw name="then Valido Status code" library="Pacientes">
+<arg>204</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:05.333" level="INFO">${RESPONSE} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:05.332" endtime="20231118 22:02:05.333"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:05.333" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:05.333" endtime="20231118 22:02:05.333"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:05.332" endtime="20231118 22:02:05.333"/>
+</kw>
+<tag>APIPacientes</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:04.305" endtime="20231118 22:02:05.333"/>
+</test>
+<test id="s1-s1-t7" name="Scenario 9: Aquele que apos remover um paciente eu tento removê-lo novamente" line="55">
+<kw name="Given Que eu cadastro um novo paciente" library="Pacientes">
+<doc>Adicionando um novo paciente</doc>
+<kw name="Gerando Novo Paciente" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:05.338" level="INFO">{
+    "nome": "Maxwell",
+    "sobrenome": "Williams",
+    "cpf": "70544737440",
+    "idade": 35,
+    "sexo": "Feminino",
+    "contato": "+1-234-995-0350",
+    "logradouro": "385 Parker Causeway Apt. 754",
+    "numero": 90,
+    "bairro": "New Amandamouth",
+    "cep": "41299-150",
+    "municipio": "East Joseph",
+    "estado": "PW"
+}</msg>
+<msg timestamp="20231118 22:02:05.338" level="INFO">${PacienteData} = {
+    "nome": "Maxwell",
+    "sobrenome": "Williams",
+    "cpf": "70544737440",
+    "idade": 35,
+    "sexo": "Feminino",
+    "contato": "+1-234-995-0350",
+    "logradouro": "385 Parker Causeway Apt. 7...</msg>
+<status status="PASS" starttime="20231118 22:02:05.336" endtime="20231118 22:02:05.338"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${PacienteData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:05.339" level="INFO">PacienteData: {
+    "nome": "Maxwell",
+    "sobrenome": "Williams",
+    "cpf": "70544737440",
+    "idade": 35,
+    "sexo": "Feminino",
+    "contato": "+1-234-995-0350",
+    "logradouro": "385 Parker Causeway Apt. 754",
+    "numero": 90,
+    "bairro": "New Amandamouth",
+    "cep": "41299-150",
+    "municipio": "East Joseph",
+    "estado": "PW"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:05.339" endtime="20231118 22:02:05.339"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:05.339" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:05.339" endtime="20231118 22:02:05.340"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:05.842" level="INFO">POST Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ path_url=/api/pacientes/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '332'} 
+ body={
+    "nome": "Maxwell",
+    "sobrenome": "Williams",
+    "cpf": "70544737440",
+    "idade": 35,
+    "sexo": "Feminino",
+    "contato": "+1-234-995-0350",
+    "logradouro": "385 Parker Causeway Apt. 754",
+    "numero": 90,
+    "bairro": "New Amandamouth",
+    "cep": "41299-150",
+    "municipio": "East Joseph",
+    "estado": "PW"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:05.842" level="INFO">POST Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355727&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=%2B1TmYGyBybKq3AeN6xtwHnTxIPmroWsjop0TI7hxf%2Bc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355727&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=%2B1TmYGyBybKq3AeN6xtwHnTxIPmroWsjop0TI7hxf%2Bc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:07 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e8f82f89b53c9dbe0a8","nome":"Maxwell","sobrenome":"Williams","cpf":"70544737440","idade":35,"sexo":"Feminino","contato":"+1-234-995-0350","logradouro":"385 Parker Causeway Apt. 754","numero":"90","bairro":"New Amandamouth","cep":"41299-150","municipio":"East Joseph","estado":"PW"} 
+ </msg>
+<msg timestamp="20231118 22:02:05.842" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:05.843" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:05.340" endtime="20231118 22:02:05.843"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:05.844" level="INFO">${response_dict} = {'id': '65595e8f82f89b53c9dbe0a8', 'nome': 'Maxwell', 'sobrenome': 'Williams', 'cpf': '70544737440', 'idade': 35, 'sexo': 'Feminino', 'contato': '+1-234-995-0350', 'logradouro': '385 Parker Causeway A...</msg>
+<status status="PASS" starttime="20231118 22:02:05.843" endtime="20231118 22:02:05.844"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${response_dict}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:05.844" level="INFO">PacienteData: {'id': '65595e8f82f89b53c9dbe0a8', 'nome': 'Maxwell', 'sobrenome': 'Williams', 'cpf': '70544737440', 'idade': 35, 'sexo': 'Feminino', 'contato': '+1-234-995-0350', 'logradouro': '385 Parker Causeway Apt. 754', 'numero': '90', 'bairro': 'New Amandamouth', 'cep': '41299-150', 'municipio': 'East Joseph', 'estado': 'PW'}</msg>
+<status status="PASS" starttime="20231118 22:02:05.844" endtime="20231118 22:02:05.844"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteNome}</var>
+<arg>${response_dict["nome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:05.845" level="INFO">${PacienteNome} = Maxwell</msg>
+<status status="PASS" starttime="20231118 22:02:05.844" endtime="20231118 22:02:05.845"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteSobrenome}</var>
+<arg>${response_dict["sobrenome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:05.856" level="INFO">${PacienteSobrenome} = Williams</msg>
+<status status="PASS" starttime="20231118 22:02:05.845" endtime="20231118 22:02:05.856"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:05.857" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:05.856" endtime="20231118 22:02:05.857"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteNome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:05.857" level="INFO">${PacienteNome} = Maxwell</msg>
+<status status="PASS" starttime="20231118 22:02:05.857" endtime="20231118 22:02:05.857"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteSobrenome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:05.858" level="INFO">${PacienteSobrenome} = Williams</msg>
+<status status="PASS" starttime="20231118 22:02:05.857" endtime="20231118 22:02:05.858"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${PacienteID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:05.858" level="INFO">${PacienteID} = 65595e8f82f89b53c9dbe0a8</msg>
+<status status="PASS" starttime="20231118 22:02:05.858" endtime="20231118 22:02:05.859"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:05.336" endtime="20231118 22:02:05.859"/>
+</kw>
+<kw name="and Que eu deleto um paciente" library="Pacientes">
+<doc>Remove o paciente criado utilizando o nome e sobrenome</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:05.860" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Maxwell/Williams, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:05.860" endtime="20231118 22:02:05.860"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:06.384" level="INFO">DELETE Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Maxwell/Williams 
+ path_url=/api/pacientes/excluir/Maxwell/Williams 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:06.384" level="INFO">DELETE Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Maxwell/Williams 
+ status=204, reason= 
+ headers={'Server': 'Cowboy', 'Content-Length': '0', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355727&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=%2B1TmYGyBybKq3AeN6xtwHnTxIPmroWsjop0TI7hxf%2Bc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355727&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=%2B1TmYGyBybKq3AeN6xtwHnTxIPmroWsjop0TI7hxf%2Bc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Date': 'Sun, 19 Nov 2023 01:02:07 GMT', 'Via': '1.1 vegur'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:06.384" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:06.386" level="INFO">${RESPONSE} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:05.860" endtime="20231118 22:02:06.386"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:06.386" level="INFO">${RESPONSE} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:06.386" endtime="20231118 22:02:06.386"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:05.859" endtime="20231118 22:02:06.386"/>
+</kw>
+<kw name="and Que eu tento deletar o mesmo paciente" library="Pacientes">
+<doc>Remove o paciente criado utilizando o nome e sobrenome</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:06.387" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Maxwell/Williams, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:06.387" endtime="20231118 22:02:06.387"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>expected_status=any</arg>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:06.886" level="INFO">DELETE Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Maxwell/Williams 
+ path_url=/api/pacientes/excluir/Maxwell/Williams 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:06.886" level="INFO">DELETE Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/excluir/Maxwell/Williams 
+ status=404, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355728&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=ItTuF5cByuErwckk5jJVHowzR4yprdHa%2F%2FGZO1utZ2k%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355728&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=ItTuF5cByuErwckk5jJVHowzR4yprdHa%2F%2FGZO1utZ2k%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:08 GMT', 'Via': '1.1 vegur'} 
+ body={"mensagem":"Paciente não encontrado!"} 
+ </msg>
+<msg timestamp="20231118 22:02:06.886" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:06.887" level="INFO">${RESPONSE} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:06.387" endtime="20231118 22:02:06.887"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:06.888" level="INFO">${RESPONSE} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:06.887" endtime="20231118 22:02:06.888"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:06.387" endtime="20231118 22:02:06.888"/>
+</kw>
+<kw name="then Valido Status code" library="Pacientes">
+<arg>404</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:06.889" level="INFO">${RESPONSE} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:06.889" endtime="20231118 22:02:06.889"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:06.890" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:06.889" endtime="20231118 22:02:06.890"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:06.888" endtime="20231118 22:02:06.890"/>
+</kw>
+<tag>APIPacientes</tag>
+<tag>Negativo</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:05.334" endtime="20231118 22:02:06.890"/>
+</test>
+<status status="PASS" starttime="20231118 22:02:00.453" endtime="20231118 22:02:06.892"/>
+</suite>
+<suite id="s1-s2" name="RegistroDeVacinasBDD" source="C:\Users\mathe\OneDrive\Área de Trabalho\Web2 - Robot\Features\RegistroDeVacinasBDD.robot">
+<test id="s1-s2-t1" name="Scenario 1: Aquele que eu busco por todos os pacientes" line="14">
+<kw name="Given Que eu verifico os regitros de vacinação" library="RegistroDeVacinas">
+<doc>Puxa os dados de todos os pacientes</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${GERENCIAMENTO-BASEURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:07.180" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:07.180" endtime="20231118 22:02:07.181"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${GERENCIAMENTO-BASEURL}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:07.726" level="INFO">GET Request : url=https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao 
+ path_url=/api/vacinacao 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:07.726" level="INFO">GET Response : url=https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355728&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=Iag%2FR%2FRYrCA%2F8jnQlFhlosYXJAj5WND6mPP6sx%2B7GXE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355728&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=Iag%2FR%2FRYrCA%2F8jnQlFhlosYXJAj5WND6mPP6sx%2B7GXE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:08 GMT', 'Via': '1.1 vegur'} 
+ body=[{"id":"6558f0ea148d3829957bd9ea","dataVacinacao":"2023-11-18T17:14:16.974+00:00","idPaciente":"65467e1b0d065b0d8af837fe","nomePaciente":"John","nomeVacina":"IMUNIZESE","idVacina":"6558d8a5b4fae46e52904f59","dosesEspecificadas":3,"estado":"BA","fabricante":"UNIDEV","dataProximaVacinacao":"2023-11-23T17:14:17.962+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"6559140290860360ec165455","dataVacinacao":"2023-11-18T19:44:00.698+00:00","idPaciente":"65467e6c0d065b0d8af83802","nomePaciente":"Richard","nomeVacina":"IMUNIZESE","idVacina":"6558d8a5b4fae46e52904f59","dosesEspecificadas":3,"estado":"CE","fabricante":"UNIDEV","dataProximaVacinacao":"2023-11-17T19:44:01.573+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"65594ce64c254f61c1945cea","dataVacinacao":"2023-11-18T23:46:46.547+00:00","idPaciente":"65467ec50d065b0d8af83806","nomePaciente":"Christopher","nomeVacina":"NMCVAC","idVacina":"65594784b4fae46e52904f61","dosesEspecificadas":2,"estado":"BA","fabricante":"Walker-Pierce","dataProximaVacinacao":"2023-11-27T23:46:46.600+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"6559581f4c254f61c1945ceb","dataVacinacao":"2023-11-19T00:34:39.854+00:00","idPaciente":"655957c482f89b53c9dbe092","nomePaciente":"Jesse","nomeVacina":"IMUNIZEs","idVacina":"6555801d1ef2c7036b06095e","dosesEspecificadas":5,"estado":"MI","fabricante":"PARAMO","dataProximaVacinacao":"2023-11-29T00:34:39.904+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"65595cd84c254f61c1945cec","dataVacinacao":"2023-11-19T00:54:48.913+00:00","idPaciente":"65595cd782f89b53c9dbe09e","nomePaciente":"Brandon","nomeVacina":"DRCVAC","idVacina":"65595cd8b4fae46e52904f6f","dosesEspecificadas":5,"estado":"PA","fabricante":"Randolph PLC","dataProximaVacinacao":"2023-11-27T00:54:48.966+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"65595d294c254f61c1945ced","dataVacinacao":"2023-11-19T00:56:09.648+00:00","idPaciente":"65595d2882f89b53c9dbe09f","nomePaciente":"Kimberly","nomeVacina":"GRCVAC","idVacina":"65595d29b4fae46e52904f70","dosesEspecificadas":3,"estado":"LA","fabricante":"Hatfield, Simpson and Montoya","dataProximaVacinacao":"2023-11-23T00:56:09.701+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"65595df54c254f61c1945cee","dataVacinacao":"2023-11-19T00:59:33.032+00:00","idPaciente":"65595df382f89b53c9dbe0a0","nomePaciente":"Rachel","nomeVacina":"AURVAC","idVacina":"65595df4b4fae46e52904f71","dosesEspecificadas":1,"estado":"MA","fabricante":"Hess Inc","dataProximaVacinacao":"2023-11-26T00:59:33.080+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"65595e2a4c254f61c1945cef","dataVacinacao":"2023-11-19T01:00:26.009+00:00","idPaciente":"65595e2882f89b53c9dbe0a1","nomePaciente":"Jasmine","nomeVacina":"LSKVAC","idVacina":"65595e29b4fae46e52904f72","dosesEspecificadas":2,"estado":"OR","fabricante":"Torres PLC","dataProximaVacinacao":"2023-11-22T01:00:26.054+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"65595e684c254f61c1945cf0","dataVacinacao":"2023-11-19T01:01:28.530+00:00","idPaciente":"65595e6782f89b53c9dbe0a2","nomePaciente":"Sherry","nomeVacina":"ETHVAC","idVacina":"65595e67b4fae46e52904f73","dosesEspecificadas":2,"estado":"SD","fabricante":"Lee-Hall","dataProximaVacinacao":"2023-11-25T01:01:28.583+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}},{"id":"65595e7e4c254f61c1945cf1","dataVacinacao":"2023-11-19T01:01:50.563+00:00","idPaciente":"65595e7d82f89b53c9dbe0a3","nomePaciente":"Kristine","nomeVacina":"MZCVAC","idVacina":"65595e7db4fae46e52904f74","dosesEspecificadas":5,"estado":"ID","fabricante":"Martinez, Mullins and Stokes","dataProximaVacinacao":"2023-11-25T01:01:50.596+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}}] 
+ </msg>
+<msg timestamp="20231118 22:02:07.726" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:07.727" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:07.181" endtime="20231118 22:02:07.727"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${GERENCIAMENTO-BASEURL}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:07.727" level="INFO">https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao</msg>
+<status status="PASS" starttime="20231118 22:02:07.727" endtime="20231118 22:02:07.727"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:07.728" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:07.728" endtime="20231118 22:02:07.728"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:07.180" endtime="20231118 22:02:07.728"/>
+</kw>
+<kw name="then RegistroDeVacinas.Valido Status code" library="RegistroDeVacinas">
+<arg>200</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:07.729" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:07.729" endtime="20231118 22:02:07.729"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:07.729" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:07.729" endtime="20231118 22:02:07.729"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:07.728" endtime="20231118 22:02:07.729"/>
+</kw>
+<tag>APIGerenciamento</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:07.179" endtime="20231118 22:02:07.730"/>
+</test>
+<test id="s1-s2-t2" name="Scenario 2: Aquele que eu registro uma vacinação" line="19">
+<kw name="Given Que eu cadastro um novo paciente" library="Pacientes">
+<doc>Adicionando um novo paciente</doc>
+<kw name="Gerando Novo Paciente" library="PacienteFake">
+<var>${PacienteData}</var>
+<msg timestamp="20231118 22:02:07.734" level="INFO">{
+    "nome": "Shelly",
+    "sobrenome": "Stevenson",
+    "cpf": "12181524513",
+    "idade": 59,
+    "sexo": "Masculino",
+    "contato": "(470)725-6247x54782",
+    "logradouro": "67221 Brown Plaza Apt. 402",
+    "numero": 37,
+    "bairro": "Lake Jonland",
+    "cep": "41299-150",
+    "municipio": "North Melissaborough",
+    "estado": "MT"
+}</msg>
+<msg timestamp="20231118 22:02:07.734" level="INFO">${PacienteData} = {
+    "nome": "Shelly",
+    "sobrenome": "Stevenson",
+    "cpf": "12181524513",
+    "idade": 59,
+    "sexo": "Masculino",
+    "contato": "(470)725-6247x54782",
+    "logradouro": "67221 Brown Plaza Apt...</msg>
+<status status="PASS" starttime="20231118 22:02:07.732" endtime="20231118 22:02:07.734"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${PacienteData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:07.734" level="INFO">PacienteData: {
+    "nome": "Shelly",
+    "sobrenome": "Stevenson",
+    "cpf": "12181524513",
+    "idade": 59,
+    "sexo": "Masculino",
+    "contato": "(470)725-6247x54782",
+    "logradouro": "67221 Brown Plaza Apt. 402",
+    "numero": 37,
+    "bairro": "Lake Jonland",
+    "cep": "41299-150",
+    "municipio": "North Melissaborough",
+    "estado": "MT"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:07.734" endtime="20231118 22:02:07.734"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:07.735" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:07.734" endtime="20231118 22:02:07.735"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${PACIENTE-BASEURL}/cadastrar</arg>
+<arg>data=${PacienteData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:08.235" level="INFO">POST Request : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ path_url=/api/pacientes/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '341'} 
+ body={
+    "nome": "Shelly",
+    "sobrenome": "Stevenson",
+    "cpf": "12181524513",
+    "idade": 59,
+    "sexo": "Masculino",
+    "contato": "(470)725-6247x54782",
+    "logradouro": "67221 Brown Plaza Apt. 402",
+    "numero": 37,
+    "bairro": "Lake Jonland",
+    "cep": "41299-150",
+    "municipio": "North Melissaborough",
+    "estado": "MT"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:08.235" level="INFO">POST Response : url=https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355729&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=R4ACxYSildkxP3%2FCHjv0ecZF5toTp4kwVHXGYiWm5ck%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355729&amp;sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&amp;s=R4ACxYSildkxP3%2FCHjv0ecZF5toTp4kwVHXGYiWm5ck%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:09 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e9182f89b53c9dbe0a9","nome":"Shelly","sobrenome":"Stevenson","cpf":"12181524513","idade":59,"sexo":"Masculino","contato":"(470)725-6247x54782","logradouro":"67221 Brown Plaza Apt. 402","numero":"37","bairro":"Lake Jonland","cep":"41299-150","municipio":"North Melissaborough","estado":"MT"} 
+ </msg>
+<msg timestamp="20231118 22:02:08.235" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-pacientes-af7078c573aa.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:08.236" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:07.735" endtime="20231118 22:02:08.236"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:08.236" level="INFO">${response_dict} = {'id': '65595e9182f89b53c9dbe0a9', 'nome': 'Shelly', 'sobrenome': 'Stevenson', 'cpf': '12181524513', 'idade': 59, 'sexo': 'Masculino', 'contato': '(470)725-6247x54782', 'logradouro': '67221 Brown Plaz...</msg>
+<status status="PASS" starttime="20231118 22:02:08.236" endtime="20231118 22:02:08.237"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>PacienteData: ${response_dict}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:08.237" level="INFO">PacienteData: {'id': '65595e9182f89b53c9dbe0a9', 'nome': 'Shelly', 'sobrenome': 'Stevenson', 'cpf': '12181524513', 'idade': 59, 'sexo': 'Masculino', 'contato': '(470)725-6247x54782', 'logradouro': '67221 Brown Plaza Apt. 402', 'numero': '37', 'bairro': 'Lake Jonland', 'cep': '41299-150', 'municipio': 'North Melissaborough', 'estado': 'MT'}</msg>
+<status status="PASS" starttime="20231118 22:02:08.237" endtime="20231118 22:02:08.237"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteNome}</var>
+<arg>${response_dict["nome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:08.237" level="INFO">${PacienteNome} = Shelly</msg>
+<status status="PASS" starttime="20231118 22:02:08.237" endtime="20231118 22:02:08.237"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${PacienteSobrenome}</var>
+<arg>${response_dict["sobrenome"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231118 22:02:08.238" level="INFO">${PacienteSobrenome} = Stevenson</msg>
+<status status="PASS" starttime="20231118 22:02:08.237" endtime="20231118 22:02:08.238"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:08.238" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:08.238" endtime="20231118 22:02:08.238"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteNome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:08.238" level="INFO">${PacienteNome} = Shelly</msg>
+<status status="PASS" starttime="20231118 22:02:08.238" endtime="20231118 22:02:08.238"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${PacienteSobrenome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:08.239" level="INFO">${PacienteSobrenome} = Stevenson</msg>
+<status status="PASS" starttime="20231118 22:02:08.239" endtime="20231118 22:02:08.239"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${PacienteID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:08.239" level="INFO">${PacienteID} = 65595e9182f89b53c9dbe0a9</msg>
+<status status="PASS" starttime="20231118 22:02:08.239" endtime="20231118 22:02:08.239"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:07.732" endtime="20231118 22:02:08.239"/>
+</kw>
+<kw name="and Que eu tenha cadastrado uma nova vacina" library="Vacinas">
+<doc>Adicionando uma nova vacina</doc>
+<kw name="Gerando Nova Vacina" library="VacinaFake">
+<var>${VacinaData}</var>
+<msg timestamp="20231118 22:02:08.242" level="INFO">{
+    "codigo": 28491,
+    "nome": "ZCLVAC",
+    "fabricante": "Vasquez-Jordan",
+    "lote": "55",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 3,
+    "intervaloEntreDoses": 4
+}</msg>
+<msg timestamp="20231118 22:02:08.242" level="INFO">${VacinaData} = {
+    "codigo": 28491,
+    "nome": "ZCLVAC",
+    "fabricante": "Vasquez-Jordan",
+    "lote": "55",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 3,
+    "intervaloEntreDoses": 4
+}</msg>
+<status status="PASS" starttime="20231118 22:02:08.240" endtime="20231118 22:02:08.242"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:08.243" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:08.242" endtime="20231118 22:02:08.243"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<arg>data=${VacinaData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:08.747" level="INFO">POST Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ path_url=/api/vacinas/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '194'} 
+ body={
+    "codigo": 28491,
+    "nome": "ZCLVAC",
+    "fabricante": "Vasquez-Jordan",
+    "lote": "55",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 3,
+    "intervaloEntreDoses": 4
+} 
+ </msg>
+<msg timestamp="20231118 22:02:08.747" level="INFO">POST Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355729&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=l74B9ZrQ2mPyE8mPCC506h0CuwihKS8GNi9JzyIRfJA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355729&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=l74B9ZrQ2mPyE8mPCC506h0CuwihKS8GNi9JzyIRfJA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:09 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e91b4fae46e52904f75","codigo":28491,"nome":"ZCLVAC","fabricante":"Vasquez-Jordan","lote":"55","validade":"2024-12-31T00:00:00.000+00:00","doses":3,"intervaloEntreDoses":4} 
+ </msg>
+<msg timestamp="20231118 22:02:08.748" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:08.748" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:08.243" endtime="20231118 22:02:08.748"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:08.750" level="INFO">${response_dict} = {'id': '65595e91b4fae46e52904f75', 'codigo': 28491, 'nome': 'ZCLVAC', 'fabricante': 'Vasquez-Jordan', 'lote': '55', 'validade': '2024-12-31T00:00:00.000+00:00', 'doses': 3, 'intervaloEntreDoses': 4}</msg>
+<status status="PASS" starttime="20231118 22:02:08.749" endtime="20231118 22:02:08.750"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${VacinaID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:08.751" level="INFO">${VacinaID} = 65595e91b4fae46e52904f75</msg>
+<status status="PASS" starttime="20231118 22:02:08.750" endtime="20231118 22:02:08.751"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>O valor do ID é: ${VacinaID}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:08.751" level="INFO">O valor do ID é: 65595e91b4fae46e52904f75</msg>
+<status status="PASS" starttime="20231118 22:02:08.751" endtime="20231118 22:02:08.751"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:08.752" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:08.752" endtime="20231118 22:02:08.752"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:08.240" endtime="20231118 22:02:08.752"/>
+</kw>
+<kw name="and Que eu registro uma nova vacinação" library="RegistroDeVacinas">
+<kw name="Gerando Novo Registro Vacinação" library="Registro">
+<var>${VacinaçãoData}</var>
+<arg>${PacienteID}</arg>
+<arg>${VacinaID}</arg>
+<msg timestamp="20231118 22:02:08.755" level="INFO">{
+    "idPaciente": "65595e9182f89b53c9dbe0a9",
+    "idVacina": "65595e91b4fae46e52904f75",
+    "cpfProfisionalSaude": "23671044098"
+}</msg>
+<msg timestamp="20231118 22:02:08.756" level="INFO">${VacinaçãoData} = {
+    "idPaciente": "65595e9182f89b53c9dbe0a9",
+    "idVacina": "65595e91b4fae46e52904f75",
+    "cpfProfisionalSaude": "23671044098"
+}</msg>
+<status status="PASS" starttime="20231118 22:02:08.753" endtime="20231118 22:02:08.756"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIPacientes</arg>
+<arg>url=${GERENCIAMENTO-BASEURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:08.756" level="INFO">Creating Session using : alias=APIPacientes, url=https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:08.756" endtime="20231118 22:02:08.756"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIPacientes</arg>
+<arg>url=${GERENCIAMENTO-BASEURL}/cadastrar</arg>
+<arg>data=${VacinaçãoData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:09.303" level="INFO">POST Request : url=https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao/cadastrar 
+ path_url=/api/vacinacao/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '134'} 
+ body={
+    "idPaciente": "65595e9182f89b53c9dbe0a9",
+    "idVacina": "65595e91b4fae46e52904f75",
+    "cpfProfisionalSaude": "23671044098"
+} 
+ </msg>
+<msg timestamp="20231118 22:02:09.303" level="INFO">POST Response : url=https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao/cadastrar 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355730&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=kvpcFeVBhw71JtwpqB%2BJcjZ9jhet3dMRuOhz7NWABIA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355730&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=kvpcFeVBhw71JtwpqB%2BJcjZ9jhet3dMRuOhz7NWABIA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:10 GMT', 'Via': '1.1 vegur'} 
+ body={"Registrado com sucesso!":{"id":"65595e924c254f61c1945cf2","dataVacinacao":"2023-11-19T01:02:10.494+00:00","idPaciente":"65595e9182f89b53c9dbe0a9","nomePaciente":"Shelly","nomeVacina":"ZCLVAC","idVacina":"65595e91b4fae46e52904f75","dosesEspecificadas":3,"estado":"MT","fabricante":"Vasquez-Jordan","dataProximaVacinacao":"2023-11-23T01:02:10.541+00:00","profissionalSaude":{"id":"6542541bd7cfad0a6d089ac7","nome":"BSI PARAMO","cpf":"23671044098"}}} 
+ </msg>
+<msg timestamp="20231118 22:02:09.303" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:09.304" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:08.756" endtime="20231118 22:02:09.304"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${GERENCIAMENTO-BASEURL}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:09.304" level="INFO">https://api-gerenciar-registro-vacina-f7f1a081aa54.herokuapp.com/api/vacinacao</msg>
+<status status="PASS" starttime="20231118 22:02:09.304" endtime="20231118 22:02:09.304"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:09.304" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.304" endtime="20231118 22:02:09.304"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:08.753" endtime="20231118 22:02:09.304"/>
+</kw>
+<kw name="then RegistroDeVacinas.Valido Status code" library="RegistroDeVacinas">
+<arg>200</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:09.305" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.305" endtime="20231118 22:02:09.305"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:09.305" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.305" endtime="20231118 22:02:09.305"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:09.304" endtime="20231118 22:02:09.306"/>
+</kw>
+<tag>APIGerenciamento</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:07.731" endtime="20231118 22:02:09.306"/>
+</test>
+<status status="PASS" starttime="20231118 22:02:06.896" endtime="20231118 22:02:09.307"/>
+</suite>
+<suite id="s1-s3" name="VacinasBDD" source="C:\Users\mathe\OneDrive\Área de Trabalho\Web2 - Robot\Features\VacinasBDD.robot">
+<test id="s1-s3-t1" name="Scenario 1: Aquele que eu chamo vejo todas as vacinas cadastradas" line="13">
+<kw name="Given Chamando todas as vacinas" library="Vacinas">
+<doc>Realiza a request e armazedo o VacinaID do respose</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:09.320" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:09.320" endtime="20231118 22:02:09.320"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:09.813" level="INFO">GET Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas 
+ path_url=/api/vacinas 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:09.813" level="INFO">GET Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355731&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=DFbp8zc1HxgOyhhenw%2FVPuipmYfEY6oEH3SUNfjSsHc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355731&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=DFbp8zc1HxgOyhhenw%2FVPuipmYfEY6oEH3SUNfjSsHc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:11 GMT', 'Via': '1.1 vegur'} 
+ body=[{"id":"6555801d1ef2c7036b06095e","codigo":202313,"nome":"IMUNIZEs","fabricante":"PARAMO","lote":"001","validade":"2025-11-10T00:00:00.000+00:00","doses":5,"intervaloEntreDoses":10},{"id":"6558d8a5b4fae46e52904f59","codigo":20288,"nome":"IMUNIZESE","fabricante":"UNIDEV","lote":"001","validade":"2025-11-10T00:00:00.000+00:00","doses":3,"intervaloEntreDoses":5},{"id":"65594564b4fae46e52904f5a","codigo":86994,"nome":"NEOVAC","fabricante":"Weiss, Morris and Foster","lote":"47","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":9},{"id":"655945abb4fae46e52904f5b","codigo":71311,"nome":"ETHVAC","fabricante":"Anderson, Baker and Jackson","lote":"20","validade":"2024-12-31T00:00:00.000+00:00","doses":4,"intervaloEntreDoses":11},{"id":"655945acb4fae46e52904f5c","codigo":54033,"nome":"MSCVAC","fabricante":"Harvey-Barrett","lote":"58","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":12},{"id":"655946a0b4fae46e52904f5e","codigo":34933,"nome":"BTCVAC","fabricante":"Thompson-Russell","lote":"26","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":8},{"id":"655946a1b4fae46e52904f5f","codigo":98160,"nome":"BTCVAC","fabricante":"Alvarado, Morgan and Mills","lote":"34","validade":"2024-12-31T00:00:00.000+00:00","doses":4,"intervaloEntreDoses":11},{"id":"65594784b4fae46e52904f61","codigo":85658,"nome":"NMCVAC","fabricante":"Walker-Pierce","lote":"23","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":9},{"id":"65594785b4fae46e52904f62","codigo":47578,"nome":"ETCVAC","fabricante":"Jennings, Powers and Williams","lote":"96","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":11},{"id":"655957396e6d890573a16962","codigo":0,"nome":"pfizer23s","fabricante":"UNIDEV","lote":"22223","validade":"2023-11-20T00:00:00.000+00:00","doses":3,"intervaloEntreDoses":3},{"id":"655957f5b4fae46e52904f64","codigo":80453,"nome":"LSKVAC","fabricante":"Harris-Malone","lote":"100","validade":"2024-12-31T00:00:00.000+00:00","doses":4,"intervaloEntreDoses":7},{"id":"6559581fb4fae46e52904f65","codigo":99157,"nome":"NXTVAC","fabricante":"Garcia-Hall","lote":"2","validade":"2024-12-31T00:00:00.000+00:00","doses":3,"intervaloEntreDoses":3},{"id":"6559583db4fae46e52904f66","codigo":80056,"nome":"ETHVAC","fabricante":"Fernandez LLC","lote":"42","validade":"2024-12-31T00:00:00.000+00:00","doses":4,"intervaloEntreDoses":4},{"id":"65595899b4fae46e52904f67","codigo":98679,"nome":"BCVAC","fabricante":"Rodriguez-Perry","lote":"63","validade":"2024-12-31T00:00:00.000+00:00","doses":5,"intervaloEntreDoses":11},{"id":"655958fdb4fae46e52904f68","codigo":92831,"nome":"DRCVAC","fabricante":"Odonnell Group","lote":"57","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":11},{"id":"65595b20b4fae46e52904f69","codigo":68567,"nome":"MZCVAC","fabricante":"Moore, Blair and Moore","lote":"3","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":8},{"id":"65595bcfb4fae46e52904f6a","codigo":84872,"nome":"AMPVAC","fabricante":"Bradley, Robinson and Hines","lote":"99","validade":"2024-12-31T00:00:00.000+00:00","doses":4,"intervaloEntreDoses":8},{"id":"65595c45b4fae46e52904f6b","codigo":11268,"nome":"TITVAC","fabricante":"Moore, Alvarez and Molina","lote":"95","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":4},{"id":"65595c74b4fae46e52904f6c","codigo":32472,"nome":"MZCVAC","fabricante":"Schaefer Group","lote":"89","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":10},{"id":"65595c9db4fae46e52904f6d","codigo":5526,"nome":"NMCVAC","fabricante":"Lopez Inc","lote":"48","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":4},{"id":"65595cc1b4fae46e52904f6e","codigo":55519,"nome":"XPMVAC","fabricante":"Osborne and Sons","lote":"85","validade":"2024-12-31T00:00:00.000+00:00","doses":5,"intervaloEntreDoses":9},{"id":"65595cd8b4fae46e52904f6f","codigo":61169,"nome":"DRCVAC","fabricante":"Randolph PLC","lote":"67","validade":"2024-12-31T00:00:00.000+00:00","doses":5,"intervaloEntreDoses":8},{"id":"65595d29b4fae46e52904f70","codigo":95780,"nome":"GRCVAC","fabricante":"Hatfield, Simpson and Montoya","lote":"2","validade":"2024-12-31T00:00:00.000+00:00","doses":3,"intervaloEntreDoses":4},{"id":"65595df4b4fae46e52904f71","codigo":51719,"nome":"AURVAC","fabricante":"Hess Inc","lote":"23","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":7},{"id":"65595e29b4fae46e52904f72","codigo":92377,"nome":"LSKVAC","fabricante":"Torres PLC","lote":"62","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":3},{"id":"65595e67b4fae46e52904f73","codigo":29211,"nome":"ETHVAC","fabricante":"Lee-Hall","lote":"58","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":6},{"id":"65595e7db4fae46e52904f74","codigo":25715,"nome":"MZCVAC","fabricante":"Martinez, Mullins and Stokes","lote":"59","validade":"2024-12-31T00:00:00.000+00:00","doses":5,"intervaloEntreDoses":6},{"id":"65595e91b4fae46e52904f75","codigo":28491,"nome":"ZCLVAC","fabricante":"Vasquez-Jordan","lote":"55","validade":"2024-12-31T00:00:00.000+00:00","doses":3,"intervaloEntreDoses":4}] 
+ </msg>
+<msg timestamp="20231118 22:02:09.814" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:09.815" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.320" endtime="20231118 22:02:09.815"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:09.815" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.815" endtime="20231118 22:02:09.815"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:09.319" endtime="20231118 22:02:09.815"/>
+</kw>
+<kw name="then Valido Status code" library="Vacinas">
+<arg>200</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:09.817" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.817" endtime="20231118 22:02:09.817"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:09.818" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.818" endtime="20231118 22:02:09.818"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:09.817" endtime="20231118 22:02:09.818"/>
+</kw>
+<tag>APIVacinas</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:09.319" endtime="20231118 22:02:09.819"/>
+</test>
+<test id="s1-s3-t2" name="Scenario 2: Aquele que eu cadastro uma vacina" line="18">
+<kw name="Given Que eu tenha cadastrado uma nova vacina" library="Vacinas">
+<doc>Adicionando uma nova vacina</doc>
+<kw name="Gerando Nova Vacina" library="VacinaFake">
+<var>${VacinaData}</var>
+<msg timestamp="20231118 22:02:09.825" level="INFO">{
+    "codigo": 69399,
+    "nome": "MSCVAC",
+    "fabricante": "Perez-Garcia",
+    "lote": "16",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 1,
+    "intervaloEntreDoses": 9
+}</msg>
+<msg timestamp="20231118 22:02:09.825" level="INFO">${VacinaData} = {
+    "codigo": 69399,
+    "nome": "MSCVAC",
+    "fabricante": "Perez-Garcia",
+    "lote": "16",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 1,
+    "intervaloEntreDoses": 9
+}</msg>
+<status status="PASS" starttime="20231118 22:02:09.823" endtime="20231118 22:02:09.826"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:09.827" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:09.826" endtime="20231118 22:02:09.827"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<arg>data=${VacinaData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:10.333" level="INFO">POST Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ path_url=/api/vacinas/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '192'} 
+ body={
+    "codigo": 69399,
+    "nome": "MSCVAC",
+    "fabricante": "Perez-Garcia",
+    "lote": "16",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 1,
+    "intervaloEntreDoses": 9
+} 
+ </msg>
+<msg timestamp="20231118 22:02:10.334" level="INFO">POST Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355731&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=DFbp8zc1HxgOyhhenw%2FVPuipmYfEY6oEH3SUNfjSsHc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355731&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=DFbp8zc1HxgOyhhenw%2FVPuipmYfEY6oEH3SUNfjSsHc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:11 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e93b4fae46e52904f76","codigo":69399,"nome":"MSCVAC","fabricante":"Perez-Garcia","lote":"16","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":9} 
+ </msg>
+<msg timestamp="20231118 22:02:10.335" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:10.335" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:09.827" endtime="20231118 22:02:10.335"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:10.337" level="INFO">${response_dict} = {'id': '65595e93b4fae46e52904f76', 'codigo': 69399, 'nome': 'MSCVAC', 'fabricante': 'Perez-Garcia', 'lote': '16', 'validade': '2024-12-31T00:00:00.000+00:00', 'doses': 1, 'intervaloEntreDoses': 9}</msg>
+<status status="PASS" starttime="20231118 22:02:10.335" endtime="20231118 22:02:10.337"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${VacinaID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:10.337" level="INFO">${VacinaID} = 65595e93b4fae46e52904f76</msg>
+<status status="PASS" starttime="20231118 22:02:10.337" endtime="20231118 22:02:10.337"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>O valor do ID é: ${VacinaID}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:10.338" level="INFO">O valor do ID é: 65595e93b4fae46e52904f76</msg>
+<status status="PASS" starttime="20231118 22:02:10.338" endtime="20231118 22:02:10.338"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:10.338" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:10.338" endtime="20231118 22:02:10.338"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:09.822" endtime="20231118 22:02:10.338"/>
+</kw>
+<kw name="then Valido Status code" library="Vacinas">
+<arg>201</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:10.339" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:10.339" endtime="20231118 22:02:10.340"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:10.340" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:10.340" endtime="20231118 22:02:10.340"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:10.339" endtime="20231118 22:02:10.340"/>
+</kw>
+<tag>APIVacinas</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:09.821" endtime="20231118 22:02:10.341"/>
+</test>
+<test id="s1-s3-t3" name="Scenario 3: Aquele que eu tento cadastradas uma vacina fora da validade" line="23">
+<kw name="Given Que eu tento cadastrar uma nova vacina fora da validade" library="Vacinas">
+<doc>Adicionando uma nova vacina</doc>
+<kw name="Gerando Nova Vacina Fora Validade" library="VacinaFake">
+<var>${VacinaData}</var>
+<msg timestamp="20231118 22:02:10.346" level="INFO">{
+    "codigo": 25422,
+    "nome": "FTHVAC",
+    "fabricante": "Osborne-Velez",
+    "lote": "33",
+    "validade": "2021-12-31T00:00:00.000+00:00",
+    "doses": 2,
+    "intervaloEntreDoses": 7
+}</msg>
+<msg timestamp="20231118 22:02:10.347" level="INFO">${VacinaData} = {
+    "codigo": 25422,
+    "nome": "FTHVAC",
+    "fabricante": "Osborne-Velez",
+    "lote": "33",
+    "validade": "2021-12-31T00:00:00.000+00:00",
+    "doses": 2,
+    "intervaloEntreDoses": 7
+}</msg>
+<status status="PASS" starttime="20231118 22:02:10.344" endtime="20231118 22:02:10.347"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:10.347" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:10.347" endtime="20231118 22:02:10.348"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>expected_status=any</arg>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<arg>data=${VacinaData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:10.854" level="INFO">POST Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ path_url=/api/vacinas/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '193'} 
+ body={
+    "codigo": 25422,
+    "nome": "FTHVAC",
+    "fabricante": "Osborne-Velez",
+    "lote": "33",
+    "validade": "2021-12-31T00:00:00.000+00:00",
+    "doses": 2,
+    "intervaloEntreDoses": 7
+} 
+ </msg>
+<msg timestamp="20231118 22:02:10.854" level="INFO">POST Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ status=500, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355732&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=W03QKGne62cdb%2F6tNdlE%2BEJ3NF3jvHwKdGBhau1j364%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355732&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=W03QKGne62cdb%2F6tNdlE%2BEJ3NF3jvHwKdGBhau1j364%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Length': '0', 'Date': 'Sun, 19 Nov 2023 01:02:12 GMT', 'Via': '1.1 vegur'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:10.854" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:10.855" level="INFO">${RESPONSE} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:10.348" endtime="20231118 22:02:10.855"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:10.856" level="INFO">${RESPONSE} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:10.855" endtime="20231118 22:02:10.856"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:10.344" endtime="20231118 22:02:10.856"/>
+</kw>
+<kw name="then Valido Status code" library="Vacinas">
+<arg>400</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:10.857" level="INFO">${RESPONSE} = &lt;Response [500]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:10.857" endtime="20231118 22:02:10.857"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:10.858" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg timestamp="20231118 22:02:10.858" level="FAIL">500 != 400</msg>
+<status status="FAIL" starttime="20231118 22:02:10.857" endtime="20231118 22:02:10.858"/>
+</kw>
+<status status="FAIL" starttime="20231118 22:02:10.856" endtime="20231118 22:02:10.859"/>
+</kw>
+<tag>APIVacinas</tag>
+<tag>Negativo</tag>
+<tag>Regressão</tag>
+<status status="FAIL" starttime="20231118 22:02:10.342" endtime="20231118 22:02:10.859">500 != 400</status>
+</test>
+<test id="s1-s3-t4" name="Scenario 4: Aquele que eu atualizo os dados de uma vacina" line="28">
+<kw name="Given Que eu tenha cadastrado uma nova vacina" library="Vacinas">
+<doc>Adicionando uma nova vacina</doc>
+<kw name="Gerando Nova Vacina" library="VacinaFake">
+<var>${VacinaData}</var>
+<msg timestamp="20231118 22:02:10.865" level="INFO">{
+    "codigo": 76569,
+    "nome": "UBQVAC",
+    "fabricante": "Casey LLC",
+    "lote": "84",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 2,
+    "intervaloEntreDoses": 9
+}</msg>
+<msg timestamp="20231118 22:02:10.865" level="INFO">${VacinaData} = {
+    "codigo": 76569,
+    "nome": "UBQVAC",
+    "fabricante": "Casey LLC",
+    "lote": "84",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 2,
+    "intervaloEntreDoses": 9
+}</msg>
+<status status="PASS" starttime="20231118 22:02:10.862" endtime="20231118 22:02:10.866"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:10.866" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:10.866" endtime="20231118 22:02:10.866"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<arg>data=${VacinaData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:11.368" level="INFO">POST Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ path_url=/api/vacinas/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '189'} 
+ body={
+    "codigo": 76569,
+    "nome": "UBQVAC",
+    "fabricante": "Casey LLC",
+    "lote": "84",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 2,
+    "intervaloEntreDoses": 9
+} 
+ </msg>
+<msg timestamp="20231118 22:02:11.369" level="INFO">POST Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355732&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=W03QKGne62cdb%2F6tNdlE%2BEJ3NF3jvHwKdGBhau1j364%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355732&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=W03QKGne62cdb%2F6tNdlE%2BEJ3NF3jvHwKdGBhau1j364%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:12 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e94b4fae46e52904f77","codigo":76569,"nome":"UBQVAC","fabricante":"Casey LLC","lote":"84","validade":"2024-12-31T00:00:00.000+00:00","doses":2,"intervaloEntreDoses":9} 
+ </msg>
+<msg timestamp="20231118 22:02:11.369" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:11.371" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:10.867" endtime="20231118 22:02:11.371"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:11.373" level="INFO">${response_dict} = {'id': '65595e94b4fae46e52904f77', 'codigo': 76569, 'nome': 'UBQVAC', 'fabricante': 'Casey LLC', 'lote': '84', 'validade': '2024-12-31T00:00:00.000+00:00', 'doses': 2, 'intervaloEntreDoses': 9}</msg>
+<status status="PASS" starttime="20231118 22:02:11.371" endtime="20231118 22:02:11.373"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${VacinaID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:11.375" level="INFO">${VacinaID} = 65595e94b4fae46e52904f77</msg>
+<status status="PASS" starttime="20231118 22:02:11.373" endtime="20231118 22:02:11.375"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>O valor do ID é: ${VacinaID}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:11.375" level="INFO">O valor do ID é: 65595e94b4fae46e52904f77</msg>
+<status status="PASS" starttime="20231118 22:02:11.375" endtime="20231118 22:02:11.376"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:11.377" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:11.376" endtime="20231118 22:02:11.377"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:10.862" endtime="20231118 22:02:11.377"/>
+</kw>
+<kw name="and Que eu atualizo os dados da vacina" library="Vacinas">
+<kw name="Gerando Nova Vacina" library="VacinaFake">
+<var>${VacinaData}</var>
+<msg timestamp="20231118 22:02:11.384" level="INFO">{
+    "codigo": 38528,
+    "nome": "XMRVAC",
+    "fabricante": "Moore, Bailey and Black",
+    "lote": "98",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 4,
+    "intervaloEntreDoses": 5
+}</msg>
+<msg timestamp="20231118 22:02:11.384" level="INFO">${VacinaData} = {
+    "codigo": 38528,
+    "nome": "XMRVAC",
+    "fabricante": "Moore, Bailey and Black",
+    "lote": "98",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 4,
+    "intervaloEntreDoses": ...</msg>
+<status status="PASS" starttime="20231118 22:02:11.379" endtime="20231118 22:02:11.384"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/editar/${VacinaID}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:11.385" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/editar/65595e94b4fae46e52904f77, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:11.384" endtime="20231118 22:02:11.385"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/editar/${VacinaID}</arg>
+<arg>data=${VacinaData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:11.899" level="INFO">PUT Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/editar/65595e94b4fae46e52904f77 
+ path_url=/api/vacinas/editar/65595e94b4fae46e52904f77 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '203'} 
+ body={
+    "codigo": 38528,
+    "nome": "XMRVAC",
+    "fabricante": "Moore, Bailey and Black",
+    "lote": "98",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 4,
+    "intervaloEntreDoses": 5
+} 
+ </msg>
+<msg timestamp="20231118 22:02:11.899" level="INFO">PUT Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/editar/65595e94b4fae46e52904f77 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355733&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=3wGIR%2FcKnEzK12jzNBXwlWOoymlZVEqf1StIrWh1Scs%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355733&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=3wGIR%2FcKnEzK12jzNBXwlWOoymlZVEqf1StIrWh1Scs%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:13 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e94b4fae46e52904f77","codigo":38528,"nome":"XMRVAC","fabricante":"Moore, Bailey and Black","lote":"98","validade":"2024-12-31T00:00:00.000+00:00","doses":4,"intervaloEntreDoses":5} 
+ </msg>
+<msg timestamp="20231118 22:02:11.899" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:11.899" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:11.386" endtime="20231118 22:02:11.899"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:11.899" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:11.899" endtime="20231118 22:02:11.899"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:11.379" endtime="20231118 22:02:11.899"/>
+</kw>
+<kw name="then Valido Status code" library="Vacinas">
+<arg>200</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:11.900" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:11.900" endtime="20231118 22:02:11.900"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:11.901" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:11.900" endtime="20231118 22:02:11.901"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:11.900" endtime="20231118 22:02:11.901"/>
+</kw>
+<tag>APIVacinas</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:10.861" endtime="20231118 22:02:11.901"/>
+</test>
+<test id="s1-s3-t5" name="Scenario 5: Aquele que eu deleto uma vacina" line="34">
+<kw name="Given Que eu tenha cadastrado uma nova vacina" library="Vacinas">
+<doc>Adicionando uma nova vacina</doc>
+<kw name="Gerando Nova Vacina" library="VacinaFake">
+<var>${VacinaData}</var>
+<msg timestamp="20231118 22:02:11.907" level="INFO">{
+    "codigo": 33756,
+    "nome": "ETHVAC",
+    "fabricante": "Hall-Beck",
+    "lote": "96",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 1,
+    "intervaloEntreDoses": 4
+}</msg>
+<msg timestamp="20231118 22:02:11.908" level="INFO">${VacinaData} = {
+    "codigo": 33756,
+    "nome": "ETHVAC",
+    "fabricante": "Hall-Beck",
+    "lote": "96",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 1,
+    "intervaloEntreDoses": 4
+}</msg>
+<status status="PASS" starttime="20231118 22:02:11.904" endtime="20231118 22:02:11.908"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:11.908" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:11.908" endtime="20231118 22:02:11.908"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/cadastrar</arg>
+<arg>data=${VacinaData}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:12.416" level="INFO">POST Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ path_url=/api/vacinas/cadastrar 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '189'} 
+ body={
+    "codigo": 33756,
+    "nome": "ETHVAC",
+    "fabricante": "Hall-Beck",
+    "lote": "96",
+    "validade": "2024-12-31T00:00:00.000+00:00",
+    "doses": 1,
+    "intervaloEntreDoses": 4
+} 
+ </msg>
+<msg timestamp="20231118 22:02:12.416" level="INFO">POST Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/cadastrar 
+ status=201, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355733&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=3wGIR%2FcKnEzK12jzNBXwlWOoymlZVEqf1StIrWh1Scs%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355733&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=3wGIR%2FcKnEzK12jzNBXwlWOoymlZVEqf1StIrWh1Scs%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 19 Nov 2023 01:02:13 GMT', 'Via': '1.1 vegur'} 
+ body={"id":"65595e95b4fae46e52904f78","codigo":33756,"nome":"ETHVAC","fabricante":"Hall-Beck","lote":"96","validade":"2024-12-31T00:00:00.000+00:00","doses":1,"intervaloEntreDoses":4} 
+ </msg>
+<msg timestamp="20231118 22:02:12.416" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:12.417" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:11.908" endtime="20231118 22:02:12.417"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_dict}</var>
+<arg>json.loads('''${RESPONSE.text}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231118 22:02:12.419" level="INFO">${response_dict} = {'id': '65595e95b4fae46e52904f78', 'codigo': 33756, 'nome': 'ETHVAC', 'fabricante': 'Hall-Beck', 'lote': '96', 'validade': '2024-12-31T00:00:00.000+00:00', 'doses': 1, 'intervaloEntreDoses': 4}</msg>
+<status status="PASS" starttime="20231118 22:02:12.417" endtime="20231118 22:02:12.419"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${VacinaID}</arg>
+<arg>${response_dict["id"]}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231118 22:02:12.420" level="INFO">${VacinaID} = 65595e95b4fae46e52904f78</msg>
+<status status="PASS" starttime="20231118 22:02:12.419" endtime="20231118 22:02:12.420"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>O valor do ID é: ${VacinaID}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231118 22:02:12.421" level="INFO">O valor do ID é: 65595e95b4fae46e52904f78</msg>
+<status status="PASS" starttime="20231118 22:02:12.420" endtime="20231118 22:02:12.421"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:12.421" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:12.421" endtime="20231118 22:02:12.421"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:11.904" endtime="20231118 22:02:12.421"/>
+</kw>
+<kw name="and Que eu deleto a vacina criada" library="Vacinas">
+<doc>Remove uma vacina apartir do ID</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/remover/${VacinaID}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231118 22:02:12.423" level="INFO">Creating Session using : alias=APIVacinas, url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/remover/65595e95b4fae46e52904f78, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231118 22:02:12.423" endtime="20231118 22:02:12.423"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=APIVacinas</arg>
+<arg>url=${VACINAS-BASEURL}/remover/${VacinaID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20231118 22:02:12.930" level="INFO">DELETE Request : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/remover/65595e95b4fae46e52904f78 
+ path_url=/api/vacinas/remover/65595e95b4fae46e52904f78 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:12.931" level="INFO">DELETE Response : url=https://api-vacinas-bsi-f03cac251e91.herokuapp.com/api/vacinas/remover/65595e95b4fae46e52904f78 
+ status=200, reason= 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1700355734&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=a2bIXTS1sBUQWj2vtww%2FpwFaLUpZXaWVcAa6YrA%2Bv8M%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1700355734&amp;sid=1b10b0ff-8a76-4548-befa-353fc6c6c045&amp;s=a2bIXTS1sBUQWj2vtww%2FpwFaLUpZXaWVcAa6YrA%2Bv8M%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'Content-Length': '0', 'Date': 'Sun, 19 Nov 2023 01:02:14 GMT', 'Via': '1.1 vegur'} 
+ body=None 
+ </msg>
+<msg timestamp="20231118 22:02:12.931" level="INFO">C:\Users\mathe\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1095: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api-vacinas-bsi-f03cac251e91.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231118 22:02:12.932" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:12.423" endtime="20231118 22:02:12.932"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231118 22:02:12.932" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:12.932" endtime="20231118 22:02:12.932"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:12.422" endtime="20231118 22:02:12.932"/>
+</kw>
+<kw name="then Valido Status code" library="Vacinas">
+<arg>200</arg>
+<doc>Utiliza o reponse para validar o staus</doc>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${RESPONSE}</var>
+<arg>${RESPONSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20231118 22:02:12.933" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:12.933" endtime="20231118 22:02:12.933"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${RESPONSE.status_code}</arg>
+<arg>${expected_status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231118 22:02:12.934" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231118 22:02:12.933" endtime="20231118 22:02:12.935"/>
+</kw>
+<status status="PASS" starttime="20231118 22:02:12.933" endtime="20231118 22:02:12.935"/>
+</kw>
+<tag>APIVacinas</tag>
+<tag>Regressão</tag>
+<status status="PASS" starttime="20231118 22:02:11.903" endtime="20231118 22:02:12.935"/>
+</test>
+<status status="FAIL" starttime="20231118 22:02:09.309" endtime="20231118 22:02:12.936"/>
+</suite>
+<status status="FAIL" starttime="20231118 22:02:00.430" endtime="20231118 22:02:12.939"/>
+</suite>
+<statistics>
+<total>
+<stat pass="13" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">APIGerenciamento</stat>
+<stat pass="7" fail="0" skip="0">APIPacientes</stat>
+<stat pass="4" fail="1" skip="0">APIVacinas</stat>
+<stat pass="3" fail="1" skip="0">Negativo</stat>
+<stat pass="13" fail="1" skip="0">Regressão</stat>
+</tag>
+<suite>
+<stat pass="13" fail="1" skip="0" id="s1" name="Features">Features</stat>
+<stat pass="7" fail="0" skip="0" id="s1-s1" name="PacientesBDD">Features.PacientesBDD</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s2" name="RegistroDeVacinasBDD">Features.RegistroDeVacinasBDD</stat>
+<stat pass="4" fail="1" skip="0" id="s1-s3" name="VacinasBDD">Features.VacinasBDD</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
