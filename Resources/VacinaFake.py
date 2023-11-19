@@ -16,7 +16,7 @@ def gerando_nova_vacina_fora_validade():
         "fabricante": fake.company(),
         "lote": lote,
         "validade": "2021-12-31T00:00:00.000+00:00",
-        "doses": random.randint(1, 5),
+        "doses": random.randint(2, 5),
         "intervaloEntreDoses": intervaloEntreDoses
     }
 
@@ -39,7 +39,7 @@ def gerando_nova_vacina():
         "fabricante": fake.company(),
         "lote": lote,
         "validade": "2024-12-31T00:00:00.000+00:00",
-        "doses": random.randint(1, 5),
+        "doses": random.randint(2, 5),
         "intervaloEntreDoses": intervaloEntreDoses
     }
 

@@ -25,7 +25,7 @@ Que eu tenha cadastrado uma nova vacina
     Create Session  alias=APIVacinas     url=${VACINAS-BASEURL}/cadastrar
     ${RESPONSE}    POST On Session    alias=APIVacinas    url=${VACINAS-BASEURL}/cadastrar    data=${VacinaData}    headers=${headers}
     ${response_dict} =    Evaluate    json.loads('''${RESPONSE.text}''')   
-     Set Global Variable   ${VacinaID}    ${response_dict["id"]}     
+    Set Global Variable   ${VacinaID}    ${response_dict['Gravado com sucesso!']['id']}     
     Log    O valor do ID é: ${VacinaID}
     Set Suite Variable    ${RESPONSE}
    

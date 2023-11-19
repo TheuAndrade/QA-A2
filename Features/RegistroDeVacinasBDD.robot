@@ -22,3 +22,10 @@ Scenario 2: Aquele que eu registro uma vacinação
      and Que eu tenha cadastrado uma nova vacina
      and Que eu registro uma nova vacinação
      then RegistroDeVacinas.Valido Status code    200
+Scenario 3: Que eu tento vacinar um paciente antes do prazo de prazo
+    [Tags]    APIGerenciamento    Regressão
+     Given Que eu cadastro um novo paciente
+     and Que eu tenha cadastrado uma nova vacina
+     and Que eu registro uma nova vacinação antes do prazo
+     then RegistroDeVacinas.Valido Status code    400
+    
