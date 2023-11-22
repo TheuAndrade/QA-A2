@@ -39,6 +39,8 @@ Scenario 5: Aquele que eu deleto uma vacina
 
 Scenario 6: Aquele que eu deleto uma vacina por ID 
      [Tags]    
-    Given Que eu deleto uma vacina com ID =    653d6dd34192b5339ce77b4d    
+    Given Que eu deleto uma vacina com ID =    65594784b4fae46e52904f61  
     then Valido Status code    200
 
+Scenario 7: Que eu deleto multipas vacinas
+    Given Que eu deleto multipas vacinas    655d238e78bc7d657106dfb9    655d1ec978bc7d657106dfb4            

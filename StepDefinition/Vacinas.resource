@@ -3,7 +3,7 @@ Library    OperatingSystem
 Library    RequestsLibrary
 Library    json
 Library     Collections
-Library    ..//Resources/VacinaFake.py
+Library    ../Resources/VacinaFake.py
 
 
 
@@ -28,7 +28,13 @@ Que eu tenha cadastrado uma nova vacina
     Set Global Variable   ${VacinaID}    ${response_dict['Gravado com sucesso!']['id']}     
     Log    O valor do ID é: ${VacinaID}
     Set Suite Variable    ${RESPONSE}
-   
+
+Que eu tento cadastrar uma nova  ########## ADD ALGO AQUI ###########
+    [Documentation]    Adicionando uma nova vacina
+    ${VacinaData}    gerando_nova_vacina_fora_validade
+    Create Session  alias=APIVacinas     url=${VACINAS-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIVacinas    url=${VACINAS-BASEURL}/cadastrar    data=${VacinaData}    headers=${headers}
+    Set Suite Variable    ${RESPONSE}
 
 Que eu tento cadastrar uma nova vacina fora da validade
     [Documentation]    Adicionando uma nova vacina
@@ -48,14 +54,20 @@ Que eu deleto a vacina criada
     ${RESPONSE}     DELETE On Session  alias=APIVacinas     url=${VACINAS-BASEURL}/remover/${VacinaID}
     Set Suite Variable    ${RESPONSE}
 
-Que eu deleto uma vacina com ID =    
-       [Arguments]    ${ID}
-       Create Session  alias=APIVacinas     url=${VACINAS-BASEURL}/remover/${ID}
-       ${RESPONSE}     DELETE On Session  alias=APIVacinas     url=${VACINAS-BASEURL}/remover/${ID}
-       Set Suite Variable    ${RESPONSE}
-
 Valido Status code
      [Arguments]    ${expected_status}
     [Documentation]    Utiliza o reponse para validar o staus 
     ${RESPONSE} =    Get Variable Value    ${RESPONSE}
     Should Be Equal As Strings    ${RESPONSE.status_code}    ${expected_status}   
+
+Que eu deleto multipas vacinas
+    [Arguments]    @{ids}
+    FOR    ${id}    IN    @{ids}
+        Que eu deleto uma vacina com ID =  ${id}
+    END
+
+Que eu deleto uma vacina com ID =    
+       [Arguments]    ${ID}
+       Create Session  alias=APIVacinas     url=${VACINAS-BASEURL}/remover/${ID}
+       ${RESPONSE}     DELETE On Session  alias=APIVacinas     url=${VACINAS-BASEURL}/remover/${ID}
+       Set Suite Variable    ${RESPONSE}

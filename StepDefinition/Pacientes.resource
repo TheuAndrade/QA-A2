@@ -4,9 +4,8 @@ Library    RequestsLibrary
 Library    json
 Library    Collections
 Library    Process
-Library    ..//Resources/PacienteFake.py
 Library    SeleniumLibrary
-
+Library    ../Resources/PacienteFake.py
 
 *** Variables ***
 ${PACIENTE-BASEURL}    https://api-pacientes-af7078c573aa.herokuapp.com/api/pacientes
@@ -36,7 +35,7 @@ Que eu chamo o paciente com o id igual a
 
 Que eu cadastro um novo paciente
     [Documentation]    Adicionando um novo paciente 
-    ${PacienteData}   gerando_novo_paciente
+    ${PacienteData}    gerando_novo_paciente
     Log    PacienteData: ${PacienteData}
     Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
     ${RESPONSE}    POST On Session    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}  
@@ -47,8 +46,13 @@ Que eu cadastro um novo paciente
     Set Suite Variable    ${RESPONSE}
     Set Suite Variable    ${PacienteNome}
     Set Suite Variable    ${PacienteSobrenome}
-    Set Global Variable    ${PacienteID}    ${response_dict["id"]}
-
+    Set Suite Variable    ${PacienteData}
+    Set Global Variable   ${PacienteID}    ${response_dict["id"]}
+Que eu cadastro o mesmo paciente
+    [Documentation]    Tento criar um paciente com os mesmos dados 
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}
+    Set Suite Variable    ${RESPONSE} 
 Que eu tento cadastrar um paciente com CPF invalido 
     [Documentation]    Adicionando um novo paciente 
     ${PacienteData}   gerando_novo_paciente_CPF_Invalido
@@ -58,6 +62,14 @@ Que eu tento cadastrar um paciente com CPF invalido
     ${response_dict} =    Evaluate    json.loads('''${RESPONSE.text}''') 
     Set Suite Variable    ${RESPONSE}
 
+Que eu tento cadastrar um paciente sem CPF 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_CPF
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    ${response_dict} =    Evaluate    json.loads('''${RESPONSE.text}''') 
+    Set Suite Variable    ${RESPONSE}
 Que eu tento cadastrar um paciente com CEP invalido 
     [Documentation]    Adicionando um novo paciente 
     ${PacienteData}   gerando_novo_paciente_CEP_Invalido
@@ -65,7 +77,123 @@ Que eu tento cadastrar um paciente com CEP invalido
     Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
     ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
     Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem CEP 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_CEP
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
 
+Que eu tento cadastrar um paciente sem nome 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_nome
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+
+Que eu tento cadastrar um paciente sem sobrenome 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_sobrenome
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem idade
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_idade
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}   
+Que eu tento cadastrar um paciente com idade negativa    
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_idade_negativa
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+
+Que eu tento cadastrar um paciente sem sexo
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_sexo
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+
+Que eu tento cadastrar um paciente com sexo invalido 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sexo_invalido
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem contato 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_contato
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente com o contato exedendo as caracteres 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_contato_invalido_MAXIMO
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente com o contato com poucas caracteres 
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_contato_invalido_MINIMO
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem logradouro
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_logradouro
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem numero
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_numero
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem bairro
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_bairro
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem municipio
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_municipio
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+Que eu tento cadastrar um paciente sem estado
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_sem_estado
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
+
+Que eu tento cadastrar um paciente com estado invalido
+    [Documentation]    Adicionando um novo paciente 
+    ${PacienteData}   gerando_novo_paciente_com_estado_invalido
+    Log    PacienteData: ${PacienteData}
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/cadastrar
+    ${RESPONSE}    POST On Session    expected_status=any    alias=APIPacientes   url=${PACIENTE-BASEURL}/cadastrar    data=${PacienteData}    headers=${headers}   
+    Set Suite Variable    ${RESPONSE}
 Eu edito um paciente existente
     ${PacienteData}    gerando_novo_paciente
     Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/${PacienteNome}/${PacienteSobrenome}
@@ -73,6 +201,24 @@ Eu edito um paciente existente
     ${response_dict} =    Evaluate    json.loads('''${RESPONSE.text}''')
     Log    PacienteData: ${response_dict}
     Set Suite Variable    ${RESPONSE}
+Eu edito um paciente existente e removo seu cpf 
+    ${PacienteData}    gerando_novo_paciente_sem_CPF
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/${PacienteID}
+    ${RESPONSE}    PUT On Session    expected_status=any    alias=APIPacientes    url=${PACIENTE-BASEURL}/${PacienteID}  data=${PacienteData}    headers=${headers}
+    Set Suite Variable    ${RESPONSE}
+
+Eu edito um paciente existente e informo um CPF invalido
+    ${PacienteData}    gerando_novo_paciente_CPF_invalido
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/${PacienteID}
+    ${RESPONSE}    PUT On Session    expected_status=any    alias=APIPacientes    url=${PACIENTE-BASEURL}/${PacienteID}  data=${PacienteData}    headers=${headers}
+    Set Suite Variable    ${RESPONSE}
+
+Eu edito um paciente existente com idade invalida 
+    ${PacienteData}    gerando_novo_paciente_idade_negativa
+    Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/${PacienteID}
+    ${RESPONSE}    PUT On Session    expected_status=any    alias=APIPacientes    url=${PACIENTE-BASEURL}/${PacienteID}  data=${PacienteData}    headers=${headers}
+    Set Suite Variable    ${RESPONSE}
+
 Que eu deleto um paciente 
     [Documentation]    Remove o paciente criado utilizando o nome e sobrenome 
     Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}
@@ -84,6 +230,12 @@ Que eu tento deletar o mesmo paciente
     Create Session  alias=APIPacientes     url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}
     ${RESPONSE}     DELETE On Session   expected_status=any     alias=APIPacientes     url=${PACIENTE-BASEURL}/excluir/${PacienteNome}/${PacienteSobrenome}
     Set Suite Variable    ${RESPONSE}
+
+Deletar multiplas vacinas por id
+    [Arguments]    @{ids}
+    FOR    ${id}    IN    @{ids}
+        Que eu deleto uma vacina com ID =    ${id}
+    END  
 
 Que eu deleto uma vacina com ID =
     [Documentation]    Remove o paciente pelo ID 
