@@ -34,27 +34,27 @@ Scenario 3: Que eu tento vacinar um paciente antes do prazo de prazo
 
 ##########################################################    PROFISSINAL DA SAUDE     ##################################################################################
 
-Scenario 2: Aquele que eu registro um novo profissional da saude 
+Scenario 4: Aquele que eu registro um novo profissional da saude 
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude
      then Registros.Valido Status code    201
 
-Scenario 2: Aquele que eu registro um novo profissional da saude nome 
+Scenario 5: Aquele que eu registro um novo profissional da saude nome 
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude sem nome 
      then Registros.Valido Status code    400
 
-Scenario 2: Aquele que eu registro um novo profissional da saude sem CPF
+Scenario 6: Aquele que eu registro um novo profissional da saude sem CPF
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude sem CPF
      then Registros.Valido Status code    400
 
-Scenario 2: Aquele que eu registro um novo profissional da com CPF invalidido
+Scenario 7: Aquele que eu registro um novo profissional da com CPF invalidido
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude com CPF invalido 
      then Registros.Valido Status code    400
 
-Scenario 2: Aquele que eu registro profissionais com o mesmo CPF 
+Scenario 8: Aquele que eu registro profissionais com o mesmo CPF 
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude
      and Que eu registro um outro profissional com os mesmos dados
@@ -62,19 +62,19 @@ Scenario 2: Aquele que eu registro profissionais com o mesmo CPF
 
 ############### PUT ##################
 
-Scenario 2: Aquele que eu edito um profissional e removo seu nome 
+Scenario 9: Aquele que eu edito um profissional e removo seu nome 
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude
      and Que eu atualizo os dados do profissionais e removo seu nome
      then Registros.Valido Status code    400
 
-Scenario 2: Aquele que eu edito um profissional e removo seu cpf
+Scenario 10: Aquele que eu edito um profissional e removo seu cpf
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude
      and Que eu atualizo os dados do profissionais e removo seu CPF
      then Registros.Valido Status code    400
 
-Scenario 2: Aquele que eu edito um profissional e informo um CPF invalido 
+Scenario 11: Aquele que eu edito um profissional e informo um CPF invalido 
      [Tags]    APIGerenciamento    Regressão
      Given Que eu registro um novo profissional da saude
      and Que eu atualizo os dados do profissionais e passo um CPF invalido
@@ -83,5 +83,5 @@ Scenario 2: Aquele que eu edito um profissional e informo um CPF invalido
 
 ################ DELETE ##################
 
-Scenario 2: Aquele que eu deleto multiplos profissionais da saude 
+Scenario 12: Aquele que eu deleto multiplos profissionais da saude 
     Given Registros.Deletar multiplas vacinas por id    6560ea9794a33a60c43f31ec   6560e70294a33a60c43f31e9    6560e38d94a33a60c43f31e2     6560e99d94a33a60c43f31eb

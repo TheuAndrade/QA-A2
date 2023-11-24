@@ -118,12 +118,12 @@ Scenario 21: Aquele que eu tento criar um novo paciente sem municipio
 Scenario 22: Aquele que eu tento criar um novo paciente sem estado
     [Tags]    APIPacientes    Regressão
     Given Que eu tento cadastrar um paciente sem estado
-    then Valido Status code   422
+    then Valido Status code   400
 
 Scenario 23: Aquele que eu tento criar um novo paciente com estado invalido
     [Tags]    APIPacientes    Regressão
     Given Que eu tento cadastrar um paciente com estado invalido
-    then Valido Status code   422
+    then Valido Status code   400
 Scenario 24: Aquele que eu tento criar dois pacientes iguais
     [Tags]    APIPacientes    Regressão
     Given Que eu cadastro um novo paciente
