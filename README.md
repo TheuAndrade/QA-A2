@@ -53,3 +53,7 @@ obs: É importante que voce esteja na raiz do projeto
     robot -d ./Reports -i Regressão .\Features
    ```
 
+### Reports:
+Apos a execução dos testes, voce podera ver uma serie de inforamções relevantes sobre os seus testes, muito util para debugar um cenario que falhou. 
+Para ter acesso ao reporte, navegue ate a pasta **Reports** e abra o arquivo reports.html no seu browser. 
+
