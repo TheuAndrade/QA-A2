@@ -1,14 +1,14 @@
 {
-    "nome": "Eric",
-    "sobrenome": "Lambert",
-    "cpf": "90049075217",
-    "idade": 9,
-    "sexo": "M",
-    "contato": "826-643-6851",
-    "logradouro": "08953 Crosby Junction Apt. 454",
-    "numero": 1,
-    "bairro": "Kristyport",
+    "nome": "Timothy",
+    "sobrenome": "Bauer",
+    "cpf": "48609323234",
+    "idade": 14,
+    "sexo": "F",
+    "contato": "001-884-223-0703x6642",
+    "logradouro": "084 Michael Hollow Suite 803",
+    "numero": 100,
+    "bairro": "Markside",
     "cep": "41299-150",
-    "municipio": "Mitchellchester",
-    "estado": "PE"
+    "municipio": "Lopezberg",
+    "estado": "AM"
 }
