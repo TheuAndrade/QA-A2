@@ -18,3 +18,16 @@ Abra o terminal ou prompt de comando e execute o seguinte comando:
 
 ```bash
 pip install robotframework
+```
+Em seguida execute esse comando para validar a isntalção do framework 
+
+```bash
+robot --version
+```
+
+### Test Suite:
+O projeto é dividido em trës suites de testes, sendo elas :
+
+ - **Vacinas :** Onde são realizados todos os testes de criação, edição e exclusão das vacinas
+ - **Pacientes :** Onde são realizados todos os testes de criação, edição e exclusão dos pacientes
+ - **Gerencial :** Onde são realizados todos os testes de criação, edição e exclusão dos profissionais de saude, e onde são registradas todas as vacinações.
