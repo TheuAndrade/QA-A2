@@ -57,3 +57,4 @@ obs: É importante que voce esteja na raiz do projeto
 Apos a execução dos testes, voce podera ver uma serie de inforamções relevantes sobre os seus testes, muito util para debugar um cenario que falhou. 
 Para ter acesso ao reporte, navegue ate a pasta **Reports** e abra o arquivo reports.html no seu browser. 
 
+![Report image](https://i.stack.imgur.com/9k7JB.png)
