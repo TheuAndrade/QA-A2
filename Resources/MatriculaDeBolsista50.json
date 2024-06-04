@@ -1,0 +1,16 @@
+{
+    "id": "1113499",
+    "courseName": "Sistemas de Informação",
+    "tuition": {
+        "amount": 695.0,
+        "formattedAmount": "R$ 695,00",
+        "dueDate": "2024-06-10",
+        "status": "EM_DIA"
+    },
+    "student": {
+        "firstName": "Manoel",
+        "lastName": "Gomes",
+        "birthDate": "2004-05-12",
+        "cpf": "76598765412"
+    }
+}

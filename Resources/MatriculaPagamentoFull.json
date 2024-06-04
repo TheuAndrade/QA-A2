@@ -1,0 +1,16 @@
+{
+    "id": "1122334",
+    "courseName": "Medicina Veterinária",
+    "tuition": {
+        "amount": 6600.0,
+        "formattedAmount": "R$ 6600,00",
+        "dueDate": null,
+        "status": "CONTRATO_QUITADO"
+    },
+    "student": {
+        "firstName": "Ana",
+        "lastName": "Pereira Lima",
+        "birthDate": "1990-04-25",
+        "cpf": "12345678900"
+    }
+}

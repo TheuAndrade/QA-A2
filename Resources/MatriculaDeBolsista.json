@@ -1,0 +1,16 @@
+{
+    "id": "7890123",
+    "courseName": "Engenharia de Software",
+    "tuition": {
+        "amount": 0.0,
+        "formattedAmount": "R$ 0.00",
+        "dueDate": null,
+        "status": "BOLSISTA_100"
+    },
+    "student": {
+        "firstName": "Carlos",
+        "lastName": "Oliveira da Silva",
+        "birthDate": "1995-03-15",
+        "cpf": "98765432100"
+    }
+}
