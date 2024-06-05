@@ -25,6 +25,14 @@ Em seguida execute esse comando para validar a isntalção do framework
 robot --version
 ```
 
+### Instalação via pip:
+
+Adicione a extensão Robot no seu VSCode:
+
+![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/82f4aefe-4cc7-482f-81fd-dec74eaaca29)
+
+
+
 ### Test Suite:
 O projeto possui apenas uma Test Suit:
 
