@@ -1,6 +1,6 @@
 # README: Instalação do Robot Framework
 
-Este repositório apresenta instruções detalhadas sobre o funcionamento do projeto de automação de testes da equipe PARAMO. Aqui, você encontrará explicações sobre a estrutura do projeto e o processo necessário para configurar e executar os testes.
+Este repositório apresenta instruções detalhadas sobre o funcionamento do projeto de automação de testes. Aqui, você encontrará explicações sobre a estrutura do projeto e o processo necessário para configurar e executar os testes.
 
 ## Pré-requisitos
 
@@ -25,36 +25,43 @@ Em seguida execute esse comando para validar a isntalção do framework
 robot --version
 ```
 
-### Test Suite:
-O projeto é dividido em trës suites de testes, sendo elas :
+### VS Code:
 
- - **Vacinas :** Onde são realizados todos os testes de criação, edição e exclusão das vacinas
- - **Pacientes :** Onde são realizados todos os testes de criação, edição e exclusão dos pacientes
- - **Gerencial :** Onde são realizados todos os testes de criação, edição e exclusão dos profissionais de saude, e onde são registradas todas as vacinações.
+Adicione a extensão Robot no seu VSCode:
+
+![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/82f4aefe-4cc7-482f-81fd-dec74eaaca29)
+
+
+
+### Test Suite:
+O projeto possui apenas uma Test Suit:
+
+ - **MatriculaBDD.robot :** Onde são realizados todos os testes
+
+### Validação de JSON:
+ Para ser mais fiel nas validações de testes, os JSON foram armazedos na pasta Resources, assim cada campo é validado de forma individual.
+ Dessa forma qualquer inforção que esteja divergente do esperado sera notificada como erro, dessa forma tambem foi possivel usar apenas 1 step para validar todos os scenrios.
+
+![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/edcd5775-fb89-45f2-94aa-47e326a5989d)
+
+
 
 ### Comandos de execução 
-Para executar as suites de testes podemos utilizar esses comandos:
-obs: É importante que voce esteja na raiz do projeto 
+Para executar a suite de testes podemos utilizar esse comando:
+obs: É importante que voce esteja na pasta Features 
 
- - **Vacinas :** Para executar todos os testes dessa suite
+ - **Matricula :** Para executar todos os testes dessa suite
    ```bahs
-    robot -d ./Reports -i Regressão .\Features\VacinasBDD.robot
+    robot --include Regressão .
    ```
- - **Pacientes :** Para executar todos os testes dessa suite
-   ```bahs
-    robot -d ./Reports -i Regressão .\Features\PacientesBDD.robot
-   ```
- - **Gerencial :** Para executar todos os testes dessa suite
-   ```bahs
-    robot -d ./Reports -i Regressão .\Features\RegistrosBDD.robot         
-   ```
-- **Todos :** Para executar TODOS os cenarios de teste
-  ```bahs
-    robot -d ./Reports -i Regressão .\Features
-   ```
+No console sera printado os resultados e o motivo do teste ter falhado(caso tenha uma falha).
+   ![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/5b901d18-bf23-478c-b25f-f84b08dbf8c3)
+
+
 
 ### Reports:
 Apos a execução dos testes, voce podera ver uma serie de inforamções relevantes sobre os seus testes, muito util para debugar um cenario que falhou. 
-Para ter acesso ao reporte, navegue ate a pasta **Reports** e abra o arquivo reports.html no seu browser. 
+Para ter acesso ao reporte, abra o arquivo reports.html no seu browser. 
 
-![Report image](https://i.stack.imgur.com/9k7JB.png)
+![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/16dc637b-c136-47ee-8687-5f1bddaa7351)
+
