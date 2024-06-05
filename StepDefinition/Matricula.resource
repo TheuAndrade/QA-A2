@@ -6,14 +6,14 @@ Library    OperatingSystem
 Library    JSONLibrary
 
 *** Variables ***
-${BASE_URL}    http://localhost:8080/v1/matriculas
-${API_KEY}     unime-qualidade-oficial2
+${BASE_URL}                 http://localhost:8080/v1/matriculas
+${API_KEY}                  unime-qualidade-oficial2
 ${RESPONSE}
 ${TESTEMAXMO}        
-${MATRICULADIA_JSON}        C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAutomationProject/Resources/MatriculaEmDia.json
-${MATRICULABOLSA100_JSON}   C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAutomationProject/Resources/MatriculaDeBolsista.json
-${MATRICULABOLSA50_JSON}    C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAutomationProject/Resources/MatriculaDeBolsista50.json
-${MATRICULPAGAMENTOFULL}    C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAutomationProject/Resources/MatriculaPagamentoFull.json
+${MATRICULADIA_JSON}        ../QA-PROVA2/Resources/MatriculaEmDia.json
+${MATRICULABOLSA100_JSON}   ../QA-PROVA2/Resources/MatriculaDeBolsista.json
+${MATRICULABOLSA50_JSON}    ../QA-PROVA2/Resources/MatriculaDeBolsista50.json
+${MATRICULPAGAMENTOFULL}    ../QA-PROVA2/Resources/MatriculaPagamentoFull.json
 
 
 *** Keywords ***
