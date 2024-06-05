@@ -43,10 +43,14 @@ obs: É importante que voce esteja na pasta Features
    ```bahs
     robot --include Regressão .
    ```
+No console sera printado os resultados e o motivo do teste ter falhado(caso tenha uma falha).
+   ![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/5b901d18-bf23-478c-b25f-f84b08dbf8c3)
+
 
 
 ### Reports:
 Apos a execução dos testes, voce podera ver uma serie de inforamções relevantes sobre os seus testes, muito util para debugar um cenario que falhou. 
 Para ter acesso ao reporte, abra o arquivo reports.html no seu browser. 
 
-![Report image](https://i.stack.imgur.com/9k7JB.png)
+![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/16dc637b-c136-47ee-8687-5f1bddaa7351)
+
