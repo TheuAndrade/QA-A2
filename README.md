@@ -25,7 +25,7 @@ Em seguida execute esse comando para validar a isntalção do framework
 robot --version
 ```
 
-### Instalação via pip:
+### VS Code:
 
 Adicione a extensão Robot no seu VSCode:
 
