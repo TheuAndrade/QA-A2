@@ -8,7 +8,8 @@ Library    JSONLibrary
 *** Variables ***
 ${BASE_URL}    http://localhost:8080/v1/matriculas
 ${API_KEY}     unime-qualidade-oficial2
-${RESPONSE}    ${None}
+${RESPONSE}
+${TESTEMAXMO}        
 ${MATRICULADIA_JSON}        C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAutomationProject/Resources/MatriculaEmDia.json
 ${MATRICULABOLSA100_JSON}   C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAutomationProject/Resources/MatriculaDeBolsista.json
 ${MATRICULABOLSA50_JSON}    C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAutomationProject/Resources/MatriculaDeBolsista50.json
@@ -16,41 +17,64 @@ ${MATRICULPAGAMENTOFULL}    C:/Users/mathe/Desktop/Faculdaed/Robot-A3/ParamoAuto
 
 
 *** Keywords ***
+
+### Fazer a request e salvar o response
 Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor
+
     [Arguments]    ${matricula}
     [Documentation]    Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada
     Create Session    APIMatriculas    ${BASE_URL}
     ${headers}=    Create Dictionary    X-API-KEY=${API_KEY}
-    ${response}=    GET On Session    APIMatriculas    /${matricula}    headers=${headers}   
+    ${response}=    GET On Session    APIMatriculas    /${matricula}    headers=${headers}   expected_status=any
     Log    ${response.status_code}
-    Set Suite Variable    ${RESPONSE}    ${response.text}
-    Set Suite Variable    ${RESPONSE.status_code}    ${response.status_code}
 
-Deve ser retornado uma resposta em JSON com uma mensagem de erro indicando que a matrícula possui pagamento em atraso.
-    [Documentation]     Validando mensagem de erro para mensalidade atrasada    
-    ${response_json}=    Evaluate    json.loads('''${RESPONSE}''')    json
-    ${errorMessage}=    Get From Dictionary    ${response_json}    mensagem    default=${null}
-    Should Be Equal    ${errorMessage}    A matrícula informada possui débitos em aberto. Não é possível obter dados da mesma até a quitação!
+    Set Suite Variable    ${RESPONSE_VALUE}    ${response.text}
+    Set Suite Variable    ${RESPONSE_STATUS_CODE}    ${response.status_code}
+    
 
+
+
+### Validações de mensagem
 Deve ser retornado uma resposta em JSON apenas com uma mensagem de erro indicando que a matrícula encontra-se excluída.
     [Documentation]     Validando mensagem de erro para mensalidade atrasada    
-    ${response_json}=    Evaluate    json.loads('''${RESPONSE}''')    json
+    ${response_json}=    Evaluate    json.loads('''${RESPONSE_VALUE}''')    json
     ${errorMessage}=    Get From Dictionary    ${response_json}    mensagem    default=${null}
     Should Be Equal    ${errorMessage}    A matrícula informada foi excluída de nossa base de dados!
 
-Status code equal
-     [Arguments]    ${statusCode}
-     [Documentation]    Validate status code
-     Should Be Equal As Numbers    ${RESPONSE.status_code}    ${statusCode}
+Deve ser retornado uma resposta em JSON com uma mensagem de erro indicando que a matrícula possui pagamento em atraso.
+    [Documentation]     Validando mensagem de erro para mensalidade atrasada    
+    ${response_json}=    Evaluate    json.loads('''${RESPONSE_VALUE}''')    json
+    ${errorMessage}=    Get From Dictionary    ${response_json}    mensagem    default=${null}
+    Should Be Equal    ${errorMessage}    A matrícula informada possui débitos em aberto. Não é possível obter dados da mesma até a quitação!
 
 Não deve ser retornada a data de vencimento da mensalidade
     [Documentation]     Validando mensagem de erro para mensalidade atrasada    
-    ${response_json}=    Evaluate    json.loads('''${RESPONSE}''')    json
+    ${response_json}=    Evaluate    json.loads('''${RESPONSE_VALUE}''')    json
     ${dueDate}=    Get From Dictionary    ${response_json}    dueDate    default=${null}
     Should Be Equal    ${dueDate}    ${null}
 
+Deve ser retornado uma resposta em JSON apenas com uma mensagem de erro indicando que a matrícula informada é inválida.
+    [Documentation]     Validando mensagem de erro para mensalidade atrasada    
+    ${response_json}=    Evaluate    json.loads('''${RESPONSE_VALUE}''')    json
+    ${errorMessage}=    Get From Dictionary    ${response_json}    mensagem    default=${null}
+    Should Be Equal    ${errorMessage}    A matrícula informada não parece ser válida!
+
+Deve ser retornado uma resposta em JSON apenas com uma mensagem de erro indicando que a matrícula informada é inexistente.
+    [Documentation]     Validando mensagem de erro para mensalidade atrasada    
+    ${response_json}=    Evaluate    json.loads('''${RESPONSE_VALUE}''')    json
+    ${errorMessage}=    Get From Dictionary    ${response_json}    mensagem    default=${null}
+    Should Be Equal    ${errorMessage}    A matrícula informada não foi localizada em nossa base de dados!
+
+### Validação de Status 
+Status code equal
+     [Arguments]    ${status}
+     [Documentation]    Validate status code
+     Should Be Equal As Strings    ${RESPONSE_STATUS_CODE}    ${status}
+
+
+### Comparar JSON armazenado com response (Simulando um dado salvo no banco)
 Deve ser retornado uma resposta em JSON com TODOS os dados da matrícula.
-    ${response_json}=    Evaluate    json.loads('''${RESPONSE}''')    json
+    ${response_json}=    Evaluate    json.loads('''${RESPONSE_VALUE}''')    json
 
     # Usar ID da response para validar o Json armazenado
     ${id}=    Get From Dictionary    ${response_json}    id    default=${null}

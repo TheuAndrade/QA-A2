@@ -1,0 +1,1589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-06-04T20:46:32.405379" rpa="false" schemaversion="5">
+<suite id="s1" name="Features" source="C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Features">
+<suite id="s1-s1" name="MatriculaBDD" source="C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Features\MatriculaBDD.robot">
+<test id="s1-s1-t1" name="Scenario 1: Deve ser possível consultar os dados de uma matrícula regular ao informar um número de matrícula válido e sem restrições." line="11">
+<kw name="Given Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor" owner="Matricula">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.686522" level="INFO">Creating Session using : alias=APIMatriculas, url=http://localhost:8080/v1/matriculas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>APIMatriculas</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-04T20:46:32.685505" elapsed="0.001017"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.686522" level="INFO">${headers} = {'X-API-KEY': 'unime-qualidade-oficial2'}</msg>
+<var>${headers}</var>
+<arg>X-API-KEY=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.686522" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.693048" level="INFO">GET Request : url=http://localhost:8080/v1/matriculas/4653421 
+ path_url=/v1/matriculas/4653421 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-API-KEY': 'unime-qualidade-oficial2'} 
+ body=None 
+ </msg>
+<msg time="2024-06-04T20:46:32.693048" level="INFO">GET Response : url=http://localhost:8080/v1/matriculas/4653421 
+ status=200, reason= 
+ headers={'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 04 Jun 2024 23:46:32 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"id":"4653421","courseName":"Sistemas de Informação","tuition":{"amount":1390.0,"formattedAmount":"R$ 1390,00","dueDate":"2024-06-10","status":"EM_DIA"},"student":{"firstName":"Mariana","lastName":"Santana de Jesus","birthDate":"2004-05-12","cpf":"89098765422"}} 
+ </msg>
+<msg time="2024-06-04T20:46:32.693048" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>APIMatriculas</arg>
+<arg>/${matricula}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.686522" elapsed="0.006526"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.694048" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.693048" elapsed="0.001000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.694048" level="INFO">${RESPONSE_VALUE} = {"id":"4653421","courseName":"Sistemas de Informação","tuition":{"amount":1390.0,"formattedAmount":"R$ 1390,00","dueDate":"2024-06-10","status":"EM_DIA"},"student":{"firstName":"Mariana","lastName":"S...</msg>
+<arg>${RESPONSE_VALUE}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.694048" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.695066" level="INFO">${RESPONSE_STATUS_CODE} = 200</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.694048" elapsed="0.001018"/>
+</kw>
+<arg>4653421</arg>
+<doc>Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.685505" elapsed="0.009561"/>
+</kw>
+<kw name="And Status code equal" owner="Matricula">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.695066" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.695066" elapsed="0.000000"/>
+</kw>
+<arg>200</arg>
+<doc>Validate status code</doc>
+<status status="PASS" start="2024-06-04T20:46:32.695066" elapsed="0.000000"/>
+</kw>
+<kw name="then Deve ser retornado uma resposta em JSON com TODOS os dados da matrícula." owner="Matricula">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.696050" level="INFO">${response_json} = {'id': '4653421', 'courseName': 'Sistemas de Informação', 'tuition': {'amount': 1390.0, 'formattedAmount': 'R$ 1390,00', 'dueDate': '2024-06-10', 'status': 'EM_DIA'}, 'student': {'firstName': 'Mariana...</msg>
+<var>${response_json}</var>
+<arg>json.loads('''${RESPONSE_VALUE}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.696050" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.696050" level="INFO">${id} = 4653421</msg>
+<var>${id}</var>
+<arg>${response_json}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.696050" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${id} == 4653421">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-06-04T20:46:32.697066" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaEmDia.json"&gt;C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaEmDia.json&lt;/a&gt;'.</msg>
+<msg time="2024-06-04T20:46:32.697066" level="INFO">${json_string} = {
+    "id": "4653421",
+    "courseName": "Sistemas de Informação",
+    "tuition": {
+        "amount": 1390.0,
+        "formattedAmount": "R$ 1390,00",
+        "dueDate": "2024-06-10",
+        "status"...</msg>
+<var>${json_string}</var>
+<arg>${MATRICULADIA_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 7890123">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA100_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1113499">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA50_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1122334">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULPAGAMENTOFULL}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.697066" level="INFO">${json_data} = {'id': '4653421', 'courseName': 'Sistemas de Informação', 'tuition': {'amount': 1390.0, 'formattedAmount': 'R$ 1390,00', 'dueDate': '2024-06-10', 'status': 'EM_DIA'}, 'student': {'firstName': 'Mariana...</msg>
+<var>${json_data}</var>
+<arg>json.loads('''${json_string}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.697066" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.698049" level="INFO">${id} = 4653421</msg>
+<var>${id}</var>
+<arg>${json_data}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.697066" elapsed="0.000983"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${id}</arg>
+<arg>${response_json['id']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.698049" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.698049" level="INFO">${courseName} = Sistemas de Informação</msg>
+<var>${courseName}</var>
+<arg>${json_data}</arg>
+<arg>courseName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.698049" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${courseName}</arg>
+<arg>${response_json['courseName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.698049" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.699069" level="INFO">${tuition} = {'amount': 1390.0, 'formattedAmount': 'R$ 1390,00', 'dueDate': '2024-06-10', 'status': 'EM_DIA'}</msg>
+<var>${tuition}</var>
+<arg>${json_data}</arg>
+<arg>tuition</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.698049" elapsed="0.001020"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.699069" level="INFO">${amount} = 1390.0</msg>
+<var>${amount}</var>
+<arg>${tuition}</arg>
+<arg>amount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.699069" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${amount}</arg>
+<arg>${response_json['tuition']['amount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.699069" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.699069" level="INFO">${formattedAmount} = R$ 1390,00</msg>
+<var>${formattedAmount}</var>
+<arg>${tuition}</arg>
+<arg>formattedAmount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.699069" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${formattedAmount}</arg>
+<arg>${response_json['tuition']['formattedAmount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.699069" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.699069" level="INFO">${dueDate} = 2024-06-10</msg>
+<var>${dueDate}</var>
+<arg>${tuition}</arg>
+<arg>dueDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.699069" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${dueDate}</arg>
+<arg>${response_json['tuition']['dueDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.699069" elapsed="0.000997"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.700066" level="INFO">${status} = EM_DIA</msg>
+<var>${status}</var>
+<arg>${tuition}</arg>
+<arg>status</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.700066" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>${response_json['tuition']['status']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.700066" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.700066" level="INFO">${student} = {'firstName': 'Mariana', 'lastName': 'Santana de Jesus', 'birthDate': '2004-05-12', 'cpf': '89098765422'}</msg>
+<var>${student}</var>
+<arg>${json_data}</arg>
+<arg>student</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.700066" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.700066" level="INFO">${firstName} = Mariana</msg>
+<var>${firstName}</var>
+<arg>${student}</arg>
+<arg>firstName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.700066" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${firstName}</arg>
+<arg>${response_json['student']['firstName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.700066" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.700066" level="INFO">${lastName} = Santana de Jesus</msg>
+<var>${lastName}</var>
+<arg>${student}</arg>
+<arg>lastName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.700066" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${lastName}</arg>
+<arg>${response_json['student']['lastName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.700066" elapsed="0.001651"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.701717" level="INFO">${birthDate} = 2004-05-12</msg>
+<var>${birthDate}</var>
+<arg>${student}</arg>
+<arg>birthDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.701717" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${birthDate}</arg>
+<arg>${response_json['student']['birthDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.701717" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.701717" level="INFO">${cpf} = 89098765422</msg>
+<var>${cpf}</var>
+<arg>${student}</arg>
+<arg>cpf</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.701717" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cpf}</arg>
+<arg>${response_json['student']['cpf']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.702632" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-06-04T20:46:32.696050" elapsed="0.006582"/>
+</kw>
+<tag>Regressão</tag>
+<status status="PASS" start="2024-06-04T20:46:32.685505" elapsed="0.017127"/>
+</test>
+<test id="s1-s1-t2" name="Scenario 2: Deve ser retornada uma mensagem de erro ao consultar os dados de uma matrícula com pagamento em atraso." line="17">
+<kw name="Given Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor" owner="Matricula">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.703609" level="INFO">Creating Session using : alias=APIMatriculas, url=http://localhost:8080/v1/matriculas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>APIMatriculas</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-04T20:46:32.703609" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.703609" level="INFO">${headers} = {'X-API-KEY': 'unime-qualidade-oficial2'}</msg>
+<var>${headers}</var>
+<arg>X-API-KEY=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.703609" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.707637" level="INFO">GET Request : url=http://localhost:8080/v1/matriculas/5566778 
+ path_url=/v1/matriculas/5566778 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-API-KEY': 'unime-qualidade-oficial2'} 
+ body=None 
+ </msg>
+<msg time="2024-06-04T20:46:32.707637" level="INFO">GET Response : url=http://localhost:8080/v1/matriculas/5566778 
+ status=200, reason= 
+ headers={'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 04 Jun 2024 23:46:32 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"mensagem":"A matrícula informada possui débitos em aberto. Não é possível obter dados da mesma até a quitação!"} 
+ </msg>
+<msg time="2024-06-04T20:46:32.707637" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>APIMatriculas</arg>
+<arg>/${matricula}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.703609" elapsed="0.004028"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.708667" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.707637" elapsed="0.001030"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.708667" level="INFO">${RESPONSE_VALUE} = {"mensagem":"A matrícula informada possui débitos em aberto. Não é possível obter dados da mesma até a quitação!"}</msg>
+<arg>${RESPONSE_VALUE}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.708667" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.708667" level="INFO">${RESPONSE_STATUS_CODE} = 200</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.708667" elapsed="0.000000"/>
+</kw>
+<arg>5566778</arg>
+<doc>Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.703609" elapsed="0.005058"/>
+</kw>
+<kw name="And Status code equal" owner="Matricula">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.709657" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2024-06-04T20:46:32.709657" level="FAIL">200 != 409</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2024-06-04T20:46:32.709657" elapsed="0.000000">200 != 409</status>
+</kw>
+<arg>409</arg>
+<doc>Validate status code</doc>
+<status status="FAIL" start="2024-06-04T20:46:32.709657" elapsed="0.000000">200 != 409</status>
+</kw>
+<kw name="then Deve ser retornado uma resposta em JSON com uma mensagem de erro indicando que a matrícula possui pagamento em atraso." owner="Matricula">
+<doc>Validando mensagem de erro para mensalidade atrasada</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.710636" elapsed="0.000000"/>
+</kw>
+<tag>Regressão</tag>
+<status status="FAIL" start="2024-06-04T20:46:32.703609" elapsed="0.007027">200 != 409</status>
+</test>
+<test id="s1-s1-t3" name="Scenario 3: Deve ser possível consultar os dados de uma matrícula de aluno bolsista 100% ao informar um número de matrícula válido e sem restrições." line="23">
+<kw name="Given Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor" owner="Matricula">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.711656" level="INFO">Creating Session using : alias=APIMatriculas, url=http://localhost:8080/v1/matriculas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>APIMatriculas</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-04T20:46:32.711656" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.711656" level="INFO">${headers} = {'X-API-KEY': 'unime-qualidade-oficial2'}</msg>
+<var>${headers}</var>
+<arg>X-API-KEY=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.711656" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.714226" level="INFO">GET Request : url=http://localhost:8080/v1/matriculas/7890123 
+ path_url=/v1/matriculas/7890123 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-API-KEY': 'unime-qualidade-oficial2'} 
+ body=None 
+ </msg>
+<msg time="2024-06-04T20:46:32.714226" level="INFO">GET Response : url=http://localhost:8080/v1/matriculas/7890123 
+ status=200, reason= 
+ headers={'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 04 Jun 2024 23:46:32 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"id":"7890123","courseName":"Engenharia de Software","tuition":{"amount":0.0,"formattedAmount":"R$ 0.00","dueDate":null,"status":"BOLSISTA_100"},"student":{"firstName":"Carlos","lastName":"Oliveira da Silva","birthDate":"1995-03-15","cpf":"98765432100"}} 
+ </msg>
+<msg time="2024-06-04T20:46:32.714226" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>APIMatriculas</arg>
+<arg>/${matricula}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.711656" elapsed="0.002570"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.714226" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.714226" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.715234" level="INFO">${RESPONSE_VALUE} = {"id":"7890123","courseName":"Engenharia de Software","tuition":{"amount":0.0,"formattedAmount":"R$ 0.00","dueDate":null,"status":"BOLSISTA_100"},"student":{"firstName":"Carlos","lastName":"Oliveira d...</msg>
+<arg>${RESPONSE_VALUE}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.714226" elapsed="0.001008"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.715234" level="INFO">${RESPONSE_STATUS_CODE} = 200</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.715234" elapsed="0.000000"/>
+</kw>
+<arg>7890123</arg>
+<doc>Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.710636" elapsed="0.004598"/>
+</kw>
+<kw name="And Status code equal" owner="Matricula">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.715234" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.715234" elapsed="0.000000"/>
+</kw>
+<arg>200</arg>
+<doc>Validate status code</doc>
+<status status="PASS" start="2024-06-04T20:46:32.715234" elapsed="0.000000"/>
+</kw>
+<kw name="then Deve ser retornado uma resposta em JSON com TODOS os dados da matrícula." owner="Matricula">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.716229" level="INFO">${response_json} = {'id': '7890123', 'courseName': 'Engenharia de Software', 'tuition': {'amount': 0.0, 'formattedAmount': 'R$ 0.00', 'dueDate': None, 'status': 'BOLSISTA_100'}, 'student': {'firstName': 'Carlos', 'lastN...</msg>
+<var>${response_json}</var>
+<arg>json.loads('''${RESPONSE_VALUE}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.716229" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.716229" level="INFO">${id} = 7890123</msg>
+<var>${id}</var>
+<arg>${response_json}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.716229" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${id} == 4653421">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULADIA_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.716229" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.716229" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 7890123">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-06-04T20:46:32.717226" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaDeBolsista.json"&gt;C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaDeBolsista.json&lt;/a&gt;'.</msg>
+<msg time="2024-06-04T20:46:32.720210" level="INFO">${json_string} = {
+    "id": "7890123",
+    "courseName": "Engenharia de Software",
+    "tuition": {
+        "amount": 0.0,
+        "formattedAmount": "R$ 0.00",
+        "dueDate": null,
+        "status": "BOLSISTA_10...</msg>
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA100_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.717226" elapsed="0.002984"/>
+</kw>
+<status status="PASS" start="2024-06-04T20:46:32.717226" elapsed="0.002984"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1113499">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA50_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.720210" elapsed="0.001537"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.720210" elapsed="0.001537"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1122334">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULPAGAMENTOFULL}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.721747" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.721747" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-06-04T20:46:32.716229" elapsed="0.005518"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.721747" level="INFO">${json_data} = {'id': '7890123', 'courseName': 'Engenharia de Software', 'tuition': {'amount': 0.0, 'formattedAmount': 'R$ 0.00', 'dueDate': None, 'status': 'BOLSISTA_100'}, 'student': {'firstName': 'Carlos', 'lastN...</msg>
+<var>${json_data}</var>
+<arg>json.loads('''${json_string}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.721747" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.721747" level="INFO">${id} = 7890123</msg>
+<var>${id}</var>
+<arg>${json_data}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.721747" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${id}</arg>
+<arg>${response_json['id']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.721747" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.721747" level="INFO">${courseName} = Engenharia de Software</msg>
+<var>${courseName}</var>
+<arg>${json_data}</arg>
+<arg>courseName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.721747" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${courseName}</arg>
+<arg>${response_json['courseName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.722782" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.722782" level="INFO">${tuition} = {'amount': 0.0, 'formattedAmount': 'R$ 0.00', 'dueDate': None, 'status': 'BOLSISTA_100'}</msg>
+<var>${tuition}</var>
+<arg>${json_data}</arg>
+<arg>tuition</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.722782" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.722782" level="INFO">${amount} = 0.0</msg>
+<var>${amount}</var>
+<arg>${tuition}</arg>
+<arg>amount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.722782" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${amount}</arg>
+<arg>${response_json['tuition']['amount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.722782" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.722782" level="INFO">${formattedAmount} = R$ 0.00</msg>
+<var>${formattedAmount}</var>
+<arg>${tuition}</arg>
+<arg>formattedAmount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.722782" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${formattedAmount}</arg>
+<arg>${response_json['tuition']['formattedAmount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.723778" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.723778" level="INFO">${dueDate} = None</msg>
+<var>${dueDate}</var>
+<arg>${tuition}</arg>
+<arg>dueDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.723778" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${dueDate}</arg>
+<arg>${response_json['tuition']['dueDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.723778" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.723778" level="INFO">${status} = BOLSISTA_100</msg>
+<var>${status}</var>
+<arg>${tuition}</arg>
+<arg>status</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.723778" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>${response_json['tuition']['status']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.723778" elapsed="0.001000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.724778" level="INFO">${student} = {'firstName': 'Carlos', 'lastName': 'Oliveira da Silva', 'birthDate': '1995-03-15', 'cpf': '98765432100'}</msg>
+<var>${student}</var>
+<arg>${json_data}</arg>
+<arg>student</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.724778" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.724778" level="INFO">${firstName} = Carlos</msg>
+<var>${firstName}</var>
+<arg>${student}</arg>
+<arg>firstName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.724778" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${firstName}</arg>
+<arg>${response_json['student']['firstName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.724778" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.724778" level="INFO">${lastName} = Oliveira da Silva</msg>
+<var>${lastName}</var>
+<arg>${student}</arg>
+<arg>lastName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.724778" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${lastName}</arg>
+<arg>${response_json['student']['lastName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.724778" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.725781" level="INFO">${birthDate} = 1995-03-15</msg>
+<var>${birthDate}</var>
+<arg>${student}</arg>
+<arg>birthDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.724778" elapsed="0.001003"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${birthDate}</arg>
+<arg>${response_json['student']['birthDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.725781" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.725781" level="INFO">${cpf} = 98765432100</msg>
+<var>${cpf}</var>
+<arg>${student}</arg>
+<arg>cpf</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.725781" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cpf}</arg>
+<arg>${response_json['student']['cpf']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.725781" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-06-04T20:46:32.716229" elapsed="0.009552"/>
+</kw>
+<tag>Regressão</tag>
+<status status="PASS" start="2024-06-04T20:46:32.710636" elapsed="0.015145"/>
+</test>
+<test id="s1-s1-t4" name="Scenario 4: Deve ser possível consultar os dados de uma matrícula de aluno bolsista 50% ao informar um número de matrícula válido e sem restrições." line="29">
+<kw name="Given Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor" owner="Matricula">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.727759" level="INFO">Creating Session using : alias=APIMatriculas, url=http://localhost:8080/v1/matriculas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>APIMatriculas</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-04T20:46:32.726760" elapsed="0.000999"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.727759" level="INFO">${headers} = {'X-API-KEY': 'unime-qualidade-oficial2'}</msg>
+<var>${headers}</var>
+<arg>X-API-KEY=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.727759" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.730761" level="INFO">GET Request : url=http://localhost:8080/v1/matriculas/1113499 
+ path_url=/v1/matriculas/1113499 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-API-KEY': 'unime-qualidade-oficial2'} 
+ body=None 
+ </msg>
+<msg time="2024-06-04T20:46:32.730761" level="INFO">GET Response : url=http://localhost:8080/v1/matriculas/1113499 
+ status=200, reason= 
+ headers={'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 04 Jun 2024 23:46:32 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"id":"1113499","courseName":"","tuition":{"amount":0.0,"formattedAmount":"R$ 0,00","dueDate":null,"status":"EM_DIA"},"student":{"firstName":"","lastName":"","birthDate":null,"cpf":"76598765412"}} 
+ </msg>
+<msg time="2024-06-04T20:46:32.730761" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>APIMatriculas</arg>
+<arg>/${matricula}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.727759" elapsed="0.003002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.730761" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.730761" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.731760" level="INFO">${RESPONSE_VALUE} = {"id":"1113499","courseName":"","tuition":{"amount":0.0,"formattedAmount":"R$ 0,00","dueDate":null,"status":"EM_DIA"},"student":{"firstName":"","lastName":"","birthDate":null,"cpf":"76598765412"}}</msg>
+<arg>${RESPONSE_VALUE}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.731760" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.731760" level="INFO">${RESPONSE_STATUS_CODE} = 200</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.731760" elapsed="0.000000"/>
+</kw>
+<arg>1113499</arg>
+<doc>Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.726760" elapsed="0.005000"/>
+</kw>
+<kw name="And Status code equal" owner="Matricula">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.732884" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.732884" elapsed="0.000000"/>
+</kw>
+<arg>200</arg>
+<doc>Validate status code</doc>
+<status status="PASS" start="2024-06-04T20:46:32.731760" elapsed="0.001124"/>
+</kw>
+<kw name="then Deve ser retornado uma resposta em JSON com TODOS os dados da matrícula." owner="Matricula">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.732884" level="INFO">${response_json} = {'id': '1113499', 'courseName': '', 'tuition': {'amount': 0.0, 'formattedAmount': 'R$ 0,00', 'dueDate': None, 'status': 'EM_DIA'}, 'student': {'firstName': '', 'lastName': '', 'birthDate': None, 'cpf'...</msg>
+<var>${response_json}</var>
+<arg>json.loads('''${RESPONSE_VALUE}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.732884" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.733863" level="INFO">${id} = 1113499</msg>
+<var>${id}</var>
+<arg>${response_json}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.732884" elapsed="0.000979"/>
+</kw>
+<if>
+<branch type="IF" condition="${id} == 4653421">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULADIA_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 7890123">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA100_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1113499">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-06-04T20:46:32.733863" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaDeBolsista50.json"&gt;C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaDeBolsista50.json&lt;/a&gt;'.</msg>
+<msg time="2024-06-04T20:46:32.733863" level="INFO">${json_string} = {
+    "id": "1113499",
+    "courseName": "Sistemas de Informação",
+    "tuition": {
+        "amount": 695.0,
+        "formattedAmount": "R$ 695,00",
+        "dueDate": "2024-06-10",
+        "status": ...</msg>
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA50_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1122334">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULPAGAMENTOFULL}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-06-04T20:46:32.733863" elapsed="0.000000"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.734861" level="INFO">${json_data} = {'id': '1113499', 'courseName': 'Sistemas de Informação', 'tuition': {'amount': 695.0, 'formattedAmount': 'R$ 695,00', 'dueDate': '2024-06-10', 'status': 'EM_DIA'}, 'student': {'firstName': 'Manoel', ...</msg>
+<var>${json_data}</var>
+<arg>json.loads('''${json_string}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.734861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.734861" level="INFO">${id} = 1113499</msg>
+<var>${id}</var>
+<arg>${json_data}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.734861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${id}</arg>
+<arg>${response_json['id']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.734861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.734861" level="INFO">${courseName} = Sistemas de Informação</msg>
+<var>${courseName}</var>
+<arg>${json_data}</arg>
+<arg>courseName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.734861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.735861" level="FAIL">Sistemas de Informação != </msg>
+<arg>${courseName}</arg>
+<arg>${response_json['courseName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2024-06-04T20:46:32.734861" elapsed="0.001000">Sistemas de Informação != </status>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${tuition}</var>
+<arg>${json_data}</arg>
+<arg>tuition</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${amount}</var>
+<arg>${tuition}</arg>
+<arg>amount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${amount}</arg>
+<arg>${response_json['tuition']['amount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${formattedAmount}</var>
+<arg>${tuition}</arg>
+<arg>formattedAmount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${formattedAmount}</arg>
+<arg>${response_json['tuition']['formattedAmount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${dueDate}</var>
+<arg>${tuition}</arg>
+<arg>dueDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${dueDate}</arg>
+<arg>${response_json['tuition']['dueDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${status}</var>
+<arg>${tuition}</arg>
+<arg>status</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>${response_json['tuition']['status']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${student}</var>
+<arg>${json_data}</arg>
+<arg>student</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${firstName}</var>
+<arg>${student}</arg>
+<arg>firstName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${firstName}</arg>
+<arg>${response_json['student']['firstName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${lastName}</var>
+<arg>${student}</arg>
+<arg>lastName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${lastName}</arg>
+<arg>${response_json['student']['lastName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${birthDate}</var>
+<arg>${student}</arg>
+<arg>birthDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${birthDate}</arg>
+<arg>${response_json['student']['birthDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.735861" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${cpf}</var>
+<arg>${student}</arg>
+<arg>cpf</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.736861" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cpf}</arg>
+<arg>${response_json['student']['cpf']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.736861" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-06-04T20:46:32.732884" elapsed="0.003977">Sistemas de Informação != </status>
+</kw>
+<tag>Regressão</tag>
+<status status="FAIL" start="2024-06-04T20:46:32.726760" elapsed="0.010101">Sistemas de Informação != </status>
+</test>
+<test id="s1-s1-t5" name="Scenario 5: Deve ser possível consultar os dados de uma matrícula de um aluno que já realizou todos os pagamentos das mensalidades futuras." line="35">
+<kw name="Given Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor" owner="Matricula">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.737860" level="INFO">Creating Session using : alias=APIMatriculas, url=http://localhost:8080/v1/matriculas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>APIMatriculas</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-04T20:46:32.737860" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.737860" level="INFO">${headers} = {'X-API-KEY': 'unime-qualidade-oficial2'}</msg>
+<var>${headers}</var>
+<arg>X-API-KEY=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.737860" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.740879" level="INFO">GET Request : url=http://localhost:8080/v1/matriculas/1122334 
+ path_url=/v1/matriculas/1122334 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-API-KEY': 'unime-qualidade-oficial2'} 
+ body=None 
+ </msg>
+<msg time="2024-06-04T20:46:32.740879" level="INFO">GET Response : url=http://localhost:8080/v1/matriculas/1122334 
+ status=200, reason= 
+ headers={'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 04 Jun 2024 23:46:32 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"id":"1122334","courseName":"Medicina Veterinária","tuition":{"amount":6600.0,"formattedAmount":"R$ 6600,00","dueDate":null,"status":"CONTRATO_QUITADO"},"student":{"firstName":"Ana","lastName":"Pereira Lima","birthDate":"1990-04-25","cpf":"12345678900"}} 
+ </msg>
+<msg time="2024-06-04T20:46:32.740879" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>APIMatriculas</arg>
+<arg>/${matricula}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.737860" elapsed="0.003019"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.740879" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.740879" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.741862" level="INFO">${RESPONSE_VALUE} = {"id":"1122334","courseName":"Medicina Veterinária","tuition":{"amount":6600.0,"formattedAmount":"R$ 6600,00","dueDate":null,"status":"CONTRATO_QUITADO"},"student":{"firstName":"Ana","lastName":"Perei...</msg>
+<arg>${RESPONSE_VALUE}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.740879" elapsed="0.000983"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.741862" level="INFO">${RESPONSE_STATUS_CODE} = 200</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.741862" elapsed="0.000000"/>
+</kw>
+<arg>1122334</arg>
+<doc>Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.737860" elapsed="0.004002"/>
+</kw>
+<kw name="And Status code equal" owner="Matricula">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.741862" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.741862" elapsed="0.000000"/>
+</kw>
+<arg>200</arg>
+<doc>Validate status code</doc>
+<status status="PASS" start="2024-06-04T20:46:32.741862" elapsed="0.000000"/>
+</kw>
+<kw name="then Deve ser retornado uma resposta em JSON com TODOS os dados da matrícula." owner="Matricula">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.743339" level="INFO">${response_json} = {'id': '1122334', 'courseName': 'Medicina Veterinária', 'tuition': {'amount': 6600.0, 'formattedAmount': 'R$ 6600,00', 'dueDate': None, 'status': 'CONTRATO_QUITADO'}, 'student': {'firstName': 'Ana', '...</msg>
+<var>${response_json}</var>
+<arg>json.loads('''${RESPONSE_VALUE}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.741862" elapsed="0.001477"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.743339" level="INFO">${id} = 1122334</msg>
+<var>${id}</var>
+<arg>${response_json}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.743339" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${id} == 4653421">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULADIA_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.743339" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.743339" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 7890123">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA100_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.743339" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.743339" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1113499">
+<kw name="Get File" owner="OperatingSystem">
+<var>${json_string}</var>
+<arg>${MATRICULABOLSA50_JSON}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.743339" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-06-04T20:46:32.743339" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${id} == 1122334">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-06-04T20:46:32.743339" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaPagamentoFull.json"&gt;C:\Users\mathe\Desktop\Faculdaed\Robot-A3\ParamoAutomationProject\Resources\MatriculaPagamentoFull.json&lt;/a&gt;'.</msg>
+<msg time="2024-06-04T20:46:32.744331" level="INFO">${json_string} = {
+    "id": "1122334",
+    "courseName": "Medicina Veterinária",
+    "tuition": {
+        "amount": 6600.0,
+        "formattedAmount": "R$ 6600,00",
+        "dueDate": null,
+        "status": "CONTRAT...</msg>
+<var>${json_string}</var>
+<arg>${MATRICULPAGAMENTOFULL}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.743339" elapsed="0.000992"/>
+</kw>
+<status status="PASS" start="2024-06-04T20:46:32.743339" elapsed="0.000992"/>
+</branch>
+<status status="PASS" start="2024-06-04T20:46:32.743339" elapsed="0.000992"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.744331" level="INFO">${json_data} = {'id': '1122334', 'courseName': 'Medicina Veterinária', 'tuition': {'amount': 6600.0, 'formattedAmount': 'R$ 6600,00', 'dueDate': None, 'status': 'CONTRATO_QUITADO'}, 'student': {'firstName': 'Ana', '...</msg>
+<var>${json_data}</var>
+<arg>json.loads('''${json_string}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.744331" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.744331" level="INFO">${id} = 1122334</msg>
+<var>${id}</var>
+<arg>${json_data}</arg>
+<arg>id</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.744331" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${id}</arg>
+<arg>${response_json['id']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.744331" elapsed="0.000981"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.745312" level="INFO">${courseName} = Medicina Veterinária</msg>
+<var>${courseName}</var>
+<arg>${json_data}</arg>
+<arg>courseName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.745312" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${courseName}</arg>
+<arg>${response_json['courseName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.745312" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.745312" level="INFO">${tuition} = {'amount': 6600.0, 'formattedAmount': 'R$ 6600,00', 'dueDate': None, 'status': 'CONTRATO_QUITADO'}</msg>
+<var>${tuition}</var>
+<arg>${json_data}</arg>
+<arg>tuition</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.745312" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.745312" level="INFO">${amount} = 6600.0</msg>
+<var>${amount}</var>
+<arg>${tuition}</arg>
+<arg>amount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.745312" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${amount}</arg>
+<arg>${response_json['tuition']['amount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.745312" elapsed="0.001029"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.746341" level="INFO">${formattedAmount} = R$ 6600,00</msg>
+<var>${formattedAmount}</var>
+<arg>${tuition}</arg>
+<arg>formattedAmount</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.746341" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${formattedAmount}</arg>
+<arg>${response_json['tuition']['formattedAmount']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.746341" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.746341" level="INFO">${dueDate} = None</msg>
+<var>${dueDate}</var>
+<arg>${tuition}</arg>
+<arg>dueDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.746341" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${dueDate}</arg>
+<arg>${response_json['tuition']['dueDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.746341" elapsed="0.000989"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.747330" level="INFO">${status} = CONTRATO_QUITADO</msg>
+<var>${status}</var>
+<arg>${tuition}</arg>
+<arg>status</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.747330" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status}</arg>
+<arg>${response_json['tuition']['status']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.747330" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.747330" level="INFO">${student} = {'firstName': 'Ana', 'lastName': 'Pereira Lima', 'birthDate': '1990-04-25', 'cpf': '12345678900'}</msg>
+<var>${student}</var>
+<arg>${json_data}</arg>
+<arg>student</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.747330" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.747330" level="INFO">${firstName} = Ana</msg>
+<var>${firstName}</var>
+<arg>${student}</arg>
+<arg>firstName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.747330" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${firstName}</arg>
+<arg>${response_json['student']['firstName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.747330" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.748329" level="INFO">${lastName} = Pereira Lima</msg>
+<var>${lastName}</var>
+<arg>${student}</arg>
+<arg>lastName</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.748329" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${lastName}</arg>
+<arg>${response_json['student']['lastName']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.748329" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.748329" level="INFO">${birthDate} = 1990-04-25</msg>
+<var>${birthDate}</var>
+<arg>${student}</arg>
+<arg>birthDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.748329" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${birthDate}</arg>
+<arg>${response_json['student']['birthDate']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.748329" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.749312" level="INFO">${cpf} = 12345678900</msg>
+<var>${cpf}</var>
+<arg>${student}</arg>
+<arg>cpf</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.748329" elapsed="0.000983"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${cpf}</arg>
+<arg>${response_json['student']['cpf']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.749312" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-06-04T20:46:32.741862" elapsed="0.007450"/>
+</kw>
+<kw name="and Não deve ser retornada a data de vencimento da mensalidade" owner="Matricula">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.750337" level="INFO">${response_json} = {'id': '1122334', 'courseName': 'Medicina Veterinária', 'tuition': {'amount': 6600.0, 'formattedAmount': 'R$ 6600,00', 'dueDate': None, 'status': 'CONTRATO_QUITADO'}, 'student': {'firstName': 'Ana', '...</msg>
+<var>${response_json}</var>
+<arg>json.loads('''${RESPONSE_VALUE}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.749312" elapsed="0.001025"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.750337" level="INFO">${dueDate} = None</msg>
+<var>${dueDate}</var>
+<arg>${response_json}</arg>
+<arg>dueDate</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.750337" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${dueDate}</arg>
+<arg>${null}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.750337" elapsed="0.000000"/>
+</kw>
+<doc>Validando mensagem de erro para mensalidade atrasada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.749312" elapsed="0.001025"/>
+</kw>
+<tag>Regressão</tag>
+<status status="PASS" start="2024-06-04T20:46:32.736861" elapsed="0.013476"/>
+</test>
+<test id="s1-s1-t6" name="Scenario 6: Deve ser retornada uma mensagem de erro ao consultar os dados de uma matrícula que já foi excluída." line="42">
+<kw name="Given Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor" owner="Matricula">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.751845" level="INFO">Creating Session using : alias=APIMatriculas, url=http://localhost:8080/v1/matriculas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>APIMatriculas</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-04T20:46:32.751845" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.751845" level="INFO">${headers} = {'X-API-KEY': 'unime-qualidade-oficial2'}</msg>
+<var>${headers}</var>
+<arg>X-API-KEY=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.751845" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.754850" level="INFO">GET Request : url=http://localhost:8080/v1/matriculas/4653499 
+ path_url=/v1/matriculas/4653499 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-API-KEY': 'unime-qualidade-oficial2'} 
+ body=None 
+ </msg>
+<msg time="2024-06-04T20:46:32.754850" level="INFO">GET Response : url=http://localhost:8080/v1/matriculas/4653499 
+ status=404, reason= 
+ headers={'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 04 Jun 2024 23:46:32 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body={"mensagem":"A matrícula informada foi excluída de nossa base de dados!"} 
+ </msg>
+<msg time="2024-06-04T20:46:32.754850" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>APIMatriculas</arg>
+<arg>/${matricula}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.751845" elapsed="0.003005"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.755888" level="INFO">404</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.754850" elapsed="0.001038"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.755888" level="INFO">${RESPONSE_VALUE} = {"mensagem":"A matrícula informada foi excluída de nossa base de dados!"}</msg>
+<arg>${RESPONSE_VALUE}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.755888" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.755888" level="INFO">${RESPONSE_STATUS_CODE} = 404</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.755888" elapsed="0.000000"/>
+</kw>
+<arg>4653499</arg>
+<doc>Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.751845" elapsed="0.004043"/>
+</kw>
+<kw name="And Status code equal" owner="Matricula">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.756849" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2024-06-04T20:46:32.756849" level="FAIL">404 != 200</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2024-06-04T20:46:32.756849" elapsed="0.000000">404 != 200</status>
+</kw>
+<arg>200</arg>
+<doc>Validate status code</doc>
+<status status="FAIL" start="2024-06-04T20:46:32.755888" elapsed="0.000961">404 != 200</status>
+</kw>
+<kw name="then Deve ser retornado uma resposta em JSON apenas com uma mensagem de erro indicando que a matrícula encontra-se excluída." owner="Matricula">
+<doc>Validando mensagem de erro para mensalidade atrasada</doc>
+<status status="NOT RUN" start="2024-06-04T20:46:32.756849" elapsed="0.000000"/>
+</kw>
+<tag>Regressão</tag>
+<status status="FAIL" start="2024-06-04T20:46:32.751845" elapsed="0.005004">404 != 200</status>
+</test>
+<test id="s1-s1-t7" name="Scenario 7: Deve ser retornada uma mensagem de erro ao consultar os dados de uma matrícula inválida." line="48">
+<kw name="Given Que realizo uma requisição do tipo GET para o endpoint de consulta de matrículas com o valor" owner="Matricula">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.757848" level="INFO">Creating Session using : alias=APIMatriculas, url=http://localhost:8080/v1/matriculas, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>APIMatriculas</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-04T20:46:32.757848" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.757848" level="INFO">${headers} = {'X-API-KEY': 'unime-qualidade-oficial2'}</msg>
+<var>${headers}</var>
+<arg>X-API-KEY=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.757848" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-04T20:46:32.760867" level="INFO">GET Request : url=http://localhost:8080/v1/matriculas/1 
+ path_url=/v1/matriculas/1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-API-KEY': 'unime-qualidade-oficial2'} 
+ body=None 
+ </msg>
+<msg time="2024-06-04T20:46:32.760867" level="INFO">GET Response : url=http://localhost:8080/v1/matriculas/1 
+ status=400, reason= 
+ headers={'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': '0', 'X-Frame-Options': 'DENY', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 04 Jun 2024 23:46:32 GMT', 'Connection': 'close'} 
+ body={"mensagem":"A matrícula informada não parece ser válida!"} 
+ </msg>
+<msg time="2024-06-04T20:46:32.760867" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>APIMatriculas</arg>
+<arg>/${matricula}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.757848" elapsed="0.003019"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.760867" level="INFO">400</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.760867" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.760867" level="INFO">${RESPONSE_VALUE} = {"mensagem":"A matrícula informada não parece ser válida!"}</msg>
+<arg>${RESPONSE_VALUE}</arg>
+<arg>${response.text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.760867" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.761866" level="INFO">${RESPONSE_STATUS_CODE} = 400</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${response.status_code}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.761866" elapsed="0.000000"/>
+</kw>
+<arg>1</arg>
+<doc>Faz uma requisição GET para o endpoint de consulta de matrículas com a matrícula informada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.757848" elapsed="0.004018"/>
+</kw>
+<kw name="And Status code equal" owner="Matricula">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.762403" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${RESPONSE_STATUS_CODE}</arg>
+<arg>${status}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.762403" elapsed="0.000000"/>
+</kw>
+<arg>400</arg>
+<doc>Validate status code</doc>
+<status status="PASS" start="2024-06-04T20:46:32.762403" elapsed="0.000000"/>
+</kw>
+<kw name="then Deve ser retornado uma resposta em JSON apenas com uma mensagem de erro indicando que a matrícula informada é inválida." owner="Matricula">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-04T20:46:32.762403" level="INFO">${response_json} = {'mensagem': 'A matrícula informada não parece ser válida!'}</msg>
+<var>${response_json}</var>
+<arg>json.loads('''${RESPONSE_VALUE}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.762403" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-06-04T20:46:32.763417" level="INFO">${errorMessage} = A matrícula informada não parece ser válida!</msg>
+<var>${errorMessage}</var>
+<arg>${response_json}</arg>
+<arg>mensagem</arg>
+<arg>default=${null}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.762403" elapsed="0.001014"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${errorMessage}</arg>
+<arg>A matrícula informada não parece ser válida!</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-04T20:46:32.763417" elapsed="0.000000"/>
+</kw>
+<doc>Validando mensagem de erro para mensalidade atrasada</doc>
+<status status="PASS" start="2024-06-04T20:46:32.762403" elapsed="0.001014"/>
+</kw>
+<tag>Regressão</tag>
+<status status="PASS" start="2024-06-04T20:46:32.757848" elapsed="0.005569"/>
+</test>
+<status status="FAIL" start="2024-06-04T20:46:32.424499" elapsed="0.338918"/>
+</suite>
+<status status="FAIL" start="2024-06-04T20:46:32.406383" elapsed="0.358033"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="3" skip="0">Regressão</stat>
+</tag>
+<suite>
+<stat pass="4" fail="3" skip="0" id="s1" name="Features">Features</stat>
+<stat pass="4" fail="3" skip="0" id="s1-s1" name="MatriculaBDD">Features.MatriculaBDD</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
