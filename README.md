@@ -29,7 +29,11 @@ robot --version
 O projeto possui apenas uma Test Suit:
 
  - **MatriculaBDD.robot :** Onde são realizados todos os testes
+![image](https://github.com/TheuAndrade/QA-A2/assets/22658521/d06260a0-26e0-432c-8c2d-d236696d2773)
 
+### Validação de JSON:
+ Para ser mais fiel nas validações de testes, os JSON foram armazedos na pasta Resources, assim cada campo é validado de forma individual.
+ Dessa forma qualquer inforção que esteja divergente do esperado sera notificada como erro, dessa forma tambem foi possivel usar apenas 1 step para validar todos os scenrios.
 
 ### Comandos de execução 
 Para executar a suite de testes podemos utilizar esse comando:
